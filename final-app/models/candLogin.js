@@ -35,7 +35,6 @@ password: {
 title: {
   type: String,
   required: true,
-  unique: true
 }, 
 
 //Technoologies they use.
