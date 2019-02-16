@@ -4,13 +4,24 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 
 
-const PORT = 3001;
+var PORT = process.env.PORT || 3001;
 const app = express();
 const router = express.Router();
 
 // this is our MongoDB database
+
+var db = require("../models"); //checkroute *****CHECK ROUTE******
+
 const dbRoute= 'mongodb://localhost/finalProject'
 //**add db ^^^***/
+var databaseUri= "mongodb://localhost/finalProject";
+
+if (process.env.MONGODB_URI){
+  mongoose.connect(process.env.MONGODB_URI);
+}else{
+  mongoose.connect(databaseUri)
+}
+
 
 mongoose.connect(
     dbRoute,
