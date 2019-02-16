@@ -8,53 +8,53 @@ var CandidateSchema = new Schema({
 first: {
   type: String,
   required: true,
-  unique: true
+  trim: true
   },
 
 //last name
 last: {
   type: String,
   required: true,
-  unique: true
+  trim: true
   },
 
 email: {
   type: String,
   required: true,
-  unique: true
+  unique: true,
+  trim: true
   },
 //Add pass params
 password: {
     type: String,
     required: true,
-    unique: true
+    trim: true
     },
 
-  // 'title'- their position
-  title: {
-    type: String,
-    required: true,
-    unique: true
-
-  }, 
+// 'title'- their position
+title: {
+  type: String,
+  required: true,
+}, 
 
 //Technoologies they use.
 tech: {
   type: String,
-  required: true,
-  unique: true
+  required: true
+
 },
  //'desc'- description of their background
   desc: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
 
 //github
 git: { 
 type: String,
-required: false
+required: false,
+unique: true,
+trim: true
 }
 //***ADD A WAY TO ADD RES- ASK VINIT***/
 

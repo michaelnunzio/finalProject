@@ -7,26 +7,27 @@ var CompLoginSchema = new Schema({
 first: {
     type: String,
     required: true,
-    unique: true
+    trim: true
     },
 
 //last name
 last: {
     type: String,
     required: true,
-    unique: true
+    trim: true
     },
 
 email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    trim: true
     },
 //Add pass params
 password: {
     type: String,
     required: true,
-    unique: true
+    trim: true
     },
 
 //company name
@@ -38,8 +39,7 @@ password: {
 //industry name 
   industry: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
 
 //add logo later on **ask vin**

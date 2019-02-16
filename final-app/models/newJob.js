@@ -7,32 +7,29 @@ var JobSchema = new Schema({
   company: {
     type: String,
     required: true,
-    unique: true
+    trim: true
   },
   // 'position'- position they're looking for
   position: {
     type: String,
     required: true,
-    unique: true
-
+    trim: true
   }, 
  //'jobDesc'- description of job
   jobDesc: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
 //required Technoologies they use.
 reqTech: {
     type: String,
-    required: true,
-    unique: true
+    required: true
 },
 
 website: {
     type: String,
     required: true,
-    unique: true
+    trim: true
 }
 
 //add logo later on **ask vin**
