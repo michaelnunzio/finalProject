@@ -214,15 +214,13 @@ router
   });
 
   router.get('/logout', function(req, res){
-    console.log(req);
-    console.log(res);
     console.log('logging out')
-    req.logOut();
-    req.flash('success_msg', 'You are logged out');
+    req.logout();
+    // req.flash('success_msg', 'You are logged out');
     // res.redirect('/');
-    req.flash('success_msg', 'You are registered and can now login');
-    console.log('you are now registered and can login');
-    res.redirect('/login/employer');
+    // req.flash('success_msg', 'You are registered and can now login');
+    // console.log('you are now registered and can login');
+    res.redirect('/');
   })
 
 module.exports = router;
