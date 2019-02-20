@@ -4,7 +4,7 @@ import "./login.css";
 function login(){
     return(
         <div className="container">
-            <form className="form-signin" method="post" action="/login/candidate">
+            <form className="form-signin" method="post" action="/login/employer">
                 <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label htmlFor="inputEmail" className="sr-only">Email address</label>
                 <input type="email" name="username" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus/>

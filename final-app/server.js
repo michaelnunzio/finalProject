@@ -11,9 +11,9 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var mongo = require("mongod");
 const mongoose = require("mongoose");
+const users = require("./routes/login/login")
 // mongoose.connect("mongodb://localhost/jobhuntr");
 var db = mongoose.connect;
-const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -29,13 +29,12 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
-app.use(routes);
 
 // BodyParser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
+app.use(expressValidator());
 
 // Express session
 app.use(session({
@@ -43,6 +42,10 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 }));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Express Validator
 app.use(expressValidator({
@@ -62,14 +65,19 @@ app.use(expressValidator({
     }
   }));
 
-// Connect Flash
-app.use(flash());
+  // Connect Flash
+  app.use(flash());
+  
+  // Add routes, both API and view
+  app.use(users);
+  
 
 //Global Variables
-app.use(function(res,res,next){
+app.use(function(req,res,next){
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
     next();
 })
 
