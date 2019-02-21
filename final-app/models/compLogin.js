@@ -1,4 +1,9 @@
 var mongoose = require("mongoose");
+var bcrypt = require('bcryptjs');
+
+mongoose.connect('mongodb://localhost/jobhuntr');
+
+// User Schema
 
 var Schema = mongoose.Schema;
 
@@ -50,4 +55,32 @@ password: {
 var CompLogin = mongoose.model("CompLogin", CompLoginSchema);
 
 // Export the Article model
-module.exports = CompLogin;
+var compUser = module.exports = CompLogin;
+
+
+module.exports.createCompUser = function(newUser, callback){
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(newUser.password, salt, function(err, hash) {
+          newUser.password = hash;
+          newUser.save(callback);
+      });
+    });
+  }
+  
+  module.exports.getCompUserByUsername = function(username, callback){
+     var query = {email: username}
+     compUser.findOne(query, callback)
+  }
+  
+  module.exports.getCompUserById = function(id, callback){
+    // var query = {email: username}
+    compUser.findById(id, callback)
+  }
+  
+  module.exports.comparePassword = function(userPassword, hash, callback){
+    bcrypt.compare(userPassword, hash, function(err, isMatch) {
+      // res === true
+      if(err) throw err;
+      callback(null, isMatch);
+    });
+  }

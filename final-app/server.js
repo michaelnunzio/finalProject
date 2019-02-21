@@ -1,46 +1,90 @@
+var express = require("express");
+var path = require('path');
+var cookieParser = require("cookie-parser");
+const favicon = require('serve-favicon');
+var logger = require('morgan');
+var bodyParser = require('body-parser');
+var expressValidator = require("express-validator");
+var flash = require("connect-flash");
+var session = require("express-session");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var mongo = require("mongod");
 const mongoose = require("mongoose");
-const express = require("express");
-const bodyParser = require("body-parser");
-const logger = require("morgan");
-
-
-var PORT = process.env.PORT || 3001;
+const users = require("./routes/login/login")
+// mongoose.connect("mongodb://localhost/jobhuntr");
+var db = mongoose.connect;
 const app = express();
-const router = express.Router();
+const PORT = process.env.PORT || 3001;
 
-// this is our MongoDB database
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({'extended':'false'}));
+app.use(express.static(path.join(__dirname, 'build')));
 
-var db = require("../models"); //checkroute *****CHECK ROUTE******
-
-const dbRoute= 'mongodb://localhost/finalProject'
-//**add db ^^^***/
-var databaseUri= "mongodb://localhost/finalProject";
-
-if (process.env.MONGODB_URI){
-  mongoose.connect(process.env.MONGODB_URI);
-}else{
-  mongoose.connect(databaseUri)
+// Define middleware here
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
 
+// BodyParser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+app.use(expressValidator());
 
-mongoose.connect(
-    dbRoute,
-    { useNewUrlParser: true }
-  );
-  
-  let db = mongoose.connection;
-  
-  db.once("open", () => console.log("connected to the database"));
-  
-  // checks if connection with the database is successful
-  db.on("error", console.error.bind(console, "MongoDB connection error:"));
-  
-  // (optional) only made for logging and
-  // bodyParser, parses the request body to be a readable json format
-  app.use(bodyParser.urlencoded({ extended: false }));
-  app.use(bodyParser.json());
-  app.use(logger("dev"));
+// Express session
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
 
-  // launch our backend into a port
-app.listen(PORT, () => console.log(`LISTENING ON PORT ${PORT}`));
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(expressValidator({
+    errorFormatter: function(param, msg, value) {
+        var namespace = param.split('.')
+        , root    = namespace.shift()
+        , formParam = root;
   
+      while(namespace.length) {
+        formParam += '[' + namespace.shift() + ']';
+      }
+      return {
+        param : formParam,
+        msg   : msg,
+        value : value
+      };
+    }
+  }));
+
+  // Connect Flash
+  app.use(flash());
+  
+  // Add routes, both API and view
+  app.use(users);
+  
+
+//Global Variables
+app.use(function(req,res,next){
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
+    next();
+})
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jobhuntr");
+
+// Start the API server
+app.listen(PORT, function() {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
