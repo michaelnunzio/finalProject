@@ -8,6 +8,8 @@ import Register from "./component/register/register";
 import EmployerRegister from './component/register/employerRegister';
 import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
+import JobCard from "./component/jobCards/JobCard"
+import PeopleCard from "./component/peopleCards/PeopleCard"
 
 class App extends Component {
 
@@ -25,7 +27,9 @@ class App extends Component {
             <Route exact path="/register/candidate" component={Register} />
             <Route exact path="/register/employer" component={EmployerRegister} />
             <Route exact path="/userProfile" component={Profile} />
-            <Route exact path="/compProfile" component={CompProfile} />            
+            <Route exact path="/compProfile" component={CompProfile} /> 
+            <Route exact path ="/JobCard" component= {JobCard} />  
+            <Route exact path ="/PeopleCard" component= {PeopleCard} />     
           </Switch>
         </div>
       </Router>
