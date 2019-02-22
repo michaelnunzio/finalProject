@@ -10,6 +10,7 @@ import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
+// import NavBar from "./component/nav/navBar"
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
         <div>
           {/* <Nav /> */}
           <Switch>
+
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login/candidate" component={Login} />
             <Route exact path="/login/employer" component={EmployerLogin} />
