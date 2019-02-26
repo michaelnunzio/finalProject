@@ -2,6 +2,8 @@ import React from "react";
 import "./login.css";
 import NavBar from "../nav/navBar"
 
+
+
 function login(){
     return(
         <React.Fragment>

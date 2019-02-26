@@ -1,10 +1,11 @@
 import React from "react";
 import "./register.css";
-import NavBar from "../nav/navBar"
+import NavBar from "../nav/navBar";
 
 function employerRegister(){
     return(
         <React.Fragment>
+
             <NavBar/>
                 <div className="container">
                     <form className="form-signin" method="post" action="/register/employer">

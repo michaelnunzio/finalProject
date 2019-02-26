@@ -1,8 +1,11 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from "../nav/navBar"
-
 // import "./userProfile.css";
+import NavBar from "../navbar/navBar";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+
 
 
 export default class companyHomePage extends Component{
@@ -32,4 +35,5 @@ export default class companyHomePage extends Component{
         )
     }
 }
+
 

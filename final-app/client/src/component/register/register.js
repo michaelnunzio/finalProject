@@ -2,12 +2,11 @@ import React from "react";
 import "./register.css";
 import NavBar from "../nav/navBar";
 
-// function passwordMatch(){
-//     console.log('comparing password');
-// }
+
 
 function register(){
     return(
+      
         <React.Fragment>
         <NavBar/>
         <div className="container">
