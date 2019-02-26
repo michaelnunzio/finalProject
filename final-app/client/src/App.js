@@ -36,8 +36,6 @@ import axios from 'axios';
 // }
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
-import './App.css';
-
 
 class App extends Component {
   state = {

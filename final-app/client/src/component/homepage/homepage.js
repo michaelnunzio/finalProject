@@ -3,6 +3,8 @@ import NavBar from "../nav/navBar"
 import "./homepage.css";
 
 
+
+
 function HomePage(){
         return(
         <React.Fragment>
@@ -24,6 +26,7 @@ function HomePage(){
 
         )
     }
+
 
 
 export default HomePage;
