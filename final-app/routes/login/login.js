@@ -4,6 +4,7 @@ var compUser = require('../../models/compLogin');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
+const util = require('util')
 // const booksController = require("../../controllers/booksController");
 
 // Matches with "/api/books"
@@ -204,13 +205,44 @@ router
   });
 
   // login for Employer
-  router.post('/login/employer',
+  router.post('/login/employer', 
   passport.authenticate('employer', {successRedirect:'/compProfile', failureRedirect:'/login/employer', failureFlash:true}),
   function(req, res) {
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
-
+    req.session.passport.userId = user._id;
+    console.log('from login' + user._id)
     res.redirect('/register');
+  });
+
+
+  // //test- route to get comp name
+  // router.get('/compProfile', function(req,res){
+
+  //   console.log("test: "+req.body.Company);
+  //   // console.log(util.inspect(req.body.Company, {showHidden: false, depth: null}))
+  //   console.log('-----------------')
+
+  // });
+
+  router.get("/compProfile", function(req, res) {
+    console.log("kjsdghkjhsakjdhlsdjhakjdhsajh")
+    console.log("user", req.user)
+    console.log("------------------------")
+    console.log("I AM LOGGED IN")
+    console.log("------------------------")
+    // Grab every document in the Articles collection
+    compUser.findOne({_id: "5c70c54d5919f44c561627c0"})
+      .then(function(cands) {
+        // If we were able to successfully find Articles, send them back to the client
+        res.json(cands);
+        console.log('testin: ' + cands)
+
+      })
+      .catch(function(err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+      });
   });
 
   router.get('/logout', function(req, res){

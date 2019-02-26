@@ -1,5 +1,6 @@
 import React from "react";
 import "./register.css";
+import NavBar from "../nav/navBar";
 
 // function passwordMatch(){
 //     console.log('comparing password');
@@ -7,6 +8,8 @@ import "./register.css";
 
 function register(){
     return(
+        <React.Fragment>
+        <NavBar/>
         <div className="container">
             <form className="form-signin" method="post" action="/register/candidate">
                 <h1 className="h3 mb-3 font-weight-normal">Register as a Candidate</h1>
@@ -34,6 +37,7 @@ function register(){
                 <p className="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
             </form>
         </div>
+        </React.Fragment>
     );
 }
 
