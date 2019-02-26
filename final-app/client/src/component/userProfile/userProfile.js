@@ -1,15 +1,19 @@
 import React from "react";
 import "./userProfile.css";
+import NavBar from '../nav/navBar';
 
 function homePage(){
     return(
-        <div class="jumbotron center">
-            <div class="container">
-                <h1 class="display-3">Welcome User</h1>
-                <p>Welcome to your profile
-                </p>
+        <React.Fragment>
+            <NavBar />
+            <div className="jumbotron center">
+                <div className="container">
+                    <h1 className="display-3">Welcome User</h1>
+                    <p>Welcome to your profile
+                    </p>
+                </div>
             </div>
-        </div>
+        </React.Fragment>
     )
 }
 

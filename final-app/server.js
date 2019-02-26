@@ -77,13 +77,13 @@ app.use(expressValidator({
   
 
 //Global Variables
-app.use(function(req,res,next){
-    res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
-    res.locals.error = req.flash('error');
-    res.locals.user = req.user || null;
-    next();
-})
+// app.use(function(req,res,next){
+//     res.locals.success_msg = req.flash('success_msg');
+//     res.locals.error_msg = req.flash('error_msg');
+//     res.locals.error = req.flash('error');
+//     res.locals.user = req.user || null;
+//     next();
+// })
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jobhuntr");

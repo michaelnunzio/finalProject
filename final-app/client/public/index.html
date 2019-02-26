@@ -13,7 +13,6 @@
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
     <!-- bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
@@ -24,11 +23,17 @@
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
 
+    <!--GOOGLE FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Chonburi" rel="stylesheet">
+
     <!--- Compiled and minified Materialize CSS --->
+    <!-- <link href="../src/App.css" rel="stylesheet"> -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+
 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -44,10 +49,10 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
+
     
     <!-- <div className="wrapper">
       <header>
-         
           <ul id="dropdown1" class="dropdown-content">
               <li><a href="/register/employer">Register as Employer</a></li>
               <li class="divider"></li>
@@ -63,7 +68,6 @@
               <a href="/" class="brand-logo"><i class="material-icons">cloud</i>JobHuntr</a>
               <ul class="right hide-on-med-and-down">
                   <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
-                  
                   <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><i class="material-icons left">assignment_ind</i>Login<i class="material-icons right">arrow_drop_down</i></a></li>
                   <li><a href="'/logout'"><i class="material-icons left">lock</i>Logout</a></li>
                   <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons left">assignment</i>Register<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -73,6 +77,7 @@
           </nav>
       </header>
     </div> -->
+
 
     <div id="root"></div>
     <!--
@@ -88,6 +93,7 @@
 
 
     <!-- Compiled and minified JavaScript for Materialize-->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script>
@@ -96,6 +102,18 @@
         // $('.sidenav').sidenav();
 
         $(".dropdown-trigger").dropdown();
+        
+        // $('#logout').on('click', function(){
+
+        //   // console.log('logged out');
+        //   $.ajax({
+        //     method:'GET',
+        //     url:'/logout',
+        //   }).then(function(data){
+        //     console.log('logout');
+        //     console.log(data);
+        //   })
+        // })
 
       })
     </script>
