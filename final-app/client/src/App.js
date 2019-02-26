@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import './App.css';
+// import './App.css';
 import HomePage from "./component/homepage/homepage";
 import Login  from "./component/login/login";
 import EmployerLogin from './component/login/employerLogin';
@@ -10,6 +10,7 @@ import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
+import NavBar from "./component/navbar/navbar"
 
 class App extends Component {
 

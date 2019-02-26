@@ -223,5 +223,28 @@ router
     // console.log('you are now registered and can login');
     // res.redirect('/login/candidate');
   })
+  router.get('/api/users/me',
+  passport.authenticate('basic', { session: false }),
+  function(req, res) {
+    res.json({ id: req.user.id, username: req.user.username });
+  });
+
+
+  const {ensureAuthenticated} = require("./auth")
+
+  router.get("/compProfile", ensureAuthenticated, (req,res)=>{
+
+    console.log(req)
+    console.log("I MADE IT TO DASHBOARD")
+    res.render("userExist")
+  })
+
+
+
+  
+
+
+
+
 
 module.exports = router;

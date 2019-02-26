@@ -1,9 +1,14 @@
 import React from "react";
+// import React, { Component } from 'react';
 import "./homepage.css";
+import NavBar from "../navbar/navbar"
 
 function homePage(){
     return(
+      <div>
+        <NavBar/>
         <div class="jumbotron center">
+       
             <div class="container">
                 <h1 class="display-3">Welcome to JobHuntr</h1>
                 <p>With JobHuntr we made you job easy to search for an opportunity. Swipe left or right, just
@@ -11,6 +16,7 @@ function homePage(){
                 </p>
                 <p><a class="btn btn-primary btn-lg" href="/" role="button">Learn more &raquo;</a></p>
             </div>
+        </div>
         </div>
     )
 }

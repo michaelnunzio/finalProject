@@ -72,10 +72,10 @@ export default class Card extends Component {
 <div className ="cardy">
 <ul>
   <li className ="cardy">
-    <strong></strong> {this.props.name}
+    <strong></strong> {this.props.first}  
   </li>
   <li className = "cardy">
-    <strong>Occupation:</strong> {this.props.title}
+    <strong></strong> {this.props.title}
   </li>
   <li className = "cardy">
     <strong>Technologies:</strong> {this.props.tech}
