@@ -312,7 +312,7 @@ router.route("/register/employer")
   });
 
 
-  const {ensureAuthenticated} = require("./auth")
+  // const {ensureAuthenticated} = require("./auth")
 
   router.get("/compProfile", ensureAuthenticated, (req,res)=>{
 
