@@ -1,6 +1,6 @@
 import React from "react";
 import "./userProfile.css";
-import NavBar from '../navbar/navBar';
+import NavBar from '../nav/navBar';
 
 function homePage(){
     return(

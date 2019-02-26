@@ -14,7 +14,9 @@ export default class companyHomePage extends Component{
                 this.setState({
                     data: response.data
                 });
-                console.log(response.data)
+                console.log('--------------------------')
+                console.log('datadatadata',response.data)
+                console.log('--------------------------')
             }).catch((error) => {
                 console.error(error);
             });
