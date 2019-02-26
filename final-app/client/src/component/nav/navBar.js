@@ -1,6 +1,15 @@
 import React, {Component} from "react";
 import "./navBar.css";
 import logo from './images/jobHlogo.png'; // Tell Webpack this JS file uses this image
+import axios from 'axios';
+
+
+function handleLogout(){
+    axios.get('/logout').then(function(data){
+        console.log(data);
+        console.log('logged out');
+    })
+}
 
 export default class NavBar extends Component{
     render(){
@@ -26,7 +35,7 @@ export default class NavBar extends Component{
                             <li><a href="/"><i className="material-icons left">home</i>Home</a></li>
                     
                             <li><a className="dropdown-trigger" href="#!" data-target="dropdown2"><i className="material-icons left">assignment_ind</i>Login<i className="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a href="/"><i className="material-icons left">lock</i>Logout</a></li>
+                            <li><a href="/" id="logout" onClick={handleLogout}><i className="material-icons left">lock</i>Logout</a></li>
                             <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="material-icons left">assignment</i>Register<i className="material-icons right">arrow_drop_down</i></a></li>
 
                         </ul>

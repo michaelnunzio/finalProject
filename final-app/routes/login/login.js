@@ -274,6 +274,7 @@ router.route("/register/employer")
     req.logout();
     console.log('is Authenticated: '+req.isAuthenticated())
     console.log('is unAuthenticated: '+req.isUnauthenticated());
+    res.redirect('/')
   //   // req.flash('success_msg', 'You are logged out');
   //   // req.flash('success_msg', 'You are registered and can now login');
   //   // console.log('you are now registered and can login');
@@ -307,6 +308,8 @@ router.route("/register/employer")
     // res.json(req.isAuthenticated());
     res.json({'auth': req.isAuthenticated()});
   })
+
+
   router.get('/api/users/me',
   passport.authenticate('basic', { session: false }),
   function(req, res) {
@@ -314,14 +317,14 @@ router.route("/register/employer")
   });
 
 
-  const {ensureAuthenticated} = require("./auth")
+  // const {ensureAuthenticated} = require("./auth")
 
-  router.get("/compProfile", ensureAuthenticated, (req,res)=>{
+  // router.get("/compProfile", ensureAuthenticated, (req,res)=>{
 
-    console.log(req)
-    console.log("I MADE IT TO DASHBOARD")
-    res.render("userExist")
-  })
+  //   console.log(req)
+  //   console.log("I MADE IT TO DASHBOARD")
+  //   res.render("userExist")
+  // })
 
 
 
