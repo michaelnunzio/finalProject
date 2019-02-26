@@ -8,7 +8,6 @@ import Register from "./component/register/register";
 import EmployerRegister from './component/register/employerRegister';
 import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
-<<<<<<< HEAD
 import ensureAuth from '../src/config/auth';
 import axios from 'axios';
 
@@ -35,10 +34,8 @@ import axios from 'axios';
 //       />
 //   )
 // }
-=======
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
->>>>>>> 51ea639015a20d59a3382703e37e83454d978549
 
 class App extends Component {
   state = {
@@ -69,7 +66,9 @@ class App extends Component {
             <Route exact path="/login/employer" component={EmployerLogin} />
             <Route exact path="/register/candidate" component={Register} />
             <Route exact path="/register/employer" component={EmployerRegister} />
-            <Route exact path="/userProfile" component={Profile} />            
+            <Route exact path="/userProfile" component={Profile} />       
+            <Route exact path ="/JobCard" component= {JobCard} />  
+            <Route exact path ="/PeopleCard" component= {PeopleCard} />     
             {/* <UserProfileRoute authed={this.state.authedUser} path="/userProfile" component={Profile} /> */}
             <Route path="/compProfile"
                 render= {(props) => {
