@@ -11,8 +11,11 @@ const {ensureAuthenticated} = require("../../config/auth");
 
 
 router.get('/compProfile', ensureAuthenticated, function(req, res){
-  console.log(req);
-  console.log('I made it')
+  console.log('data req' + req);
+  console.log('I made it');
+  
+// req.user
+
   // res.redirect('/compProfile');
 })
 
@@ -224,25 +227,27 @@ router.route("/register/employer")
 
   // });
 
-  router.get("/compProfile", function(req, res) {
-    console.log("kjsdghkjhsakjdhlsdjhakjdhsajh")
-    console.log("user", req.user)
-    console.log("------------------------")
-    console.log("I AM LOGGED IN")
-    console.log("------------------------")
-    // Grab every document in the Articles collection
-    compUser.findOne({_id: "5c70c54d5919f44c561627c0"})
-      .then(function(cands) {
-        // If we were able to successfully find Articles, send them back to the client
-        res.json(cands);
-        console.log('testin: ' + cands)
 
-      })
-      .catch(function(err) {
-        // If an error occurred, send it to the client
-        res.json(err);
-      });
-  });
+  // router.get("/compProfile", function(req, res) {
+  //   // console.log("kjsdghkjhsakjdhlsdjhakjdhsajh")
+  //   // console.log("user", req.user)
+  //   // console.log("------------------------")
+  //   // console.log("I AM LOGGED IN")
+  //   // console.log("------------------------")
+  //   // Grab every document in the Articles collection
+  //   compUser.find({})
+  //   .then(function(cands) {
+  //     // If we were able to successfully find Articles, send them back to the client
+  //     req.json(cands);
+  //     console.log('------------------')
+  //     console.log('response: ' + cands)
+  //     console.log('------------------')
+  //   })
+  //   .catch(function(err) {
+  //     // If an error occurred, send it to the client
+  //     res.json(err);
+  //   });
+  // });
 
 
 

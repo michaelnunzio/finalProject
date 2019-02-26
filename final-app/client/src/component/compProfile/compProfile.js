@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from "../nav/navBar"
 // import "./userProfile.css";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 
 
@@ -25,9 +25,9 @@ export default class companyHomePage extends Component{
         return(
             <React.Fragment>
            <NavBar/>
-            <div class="jumbotron center">
-                <div class="container">
-                    <h1 class="display-3">Welcome</h1>
+            <div className="jumbotron center">
+                <div className="container">
+                    <h1 className="display-3">Welcome {this.data}</h1>
                     <p>Welcome to your company profile
                     </p>
                 </div>
