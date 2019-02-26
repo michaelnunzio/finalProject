@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from "../nav/navBar"
 // import "./userProfile.css";
-import NavBar from "../navbar/navBar";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 
@@ -15,7 +14,9 @@ export default class companyHomePage extends Component{
                 this.setState({
                     data: response.data
                 });
-                console.log(response.data)
+                console.log('--------------------------')
+                console.log('datadatadata',response.data)
+                console.log('--------------------------')
             }).catch((error) => {
                 console.error(error);
             });
