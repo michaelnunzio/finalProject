@@ -62,8 +62,13 @@ type: String,
 required: false,
 unique: true,
 trim: true
-}
+},
 //***ADD A WAY TO ADD RES- ASK VINIT***/
+
+company:{
+  type: Boolean,
+  default: false
+}
 
 });
 
