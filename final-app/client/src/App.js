@@ -8,6 +8,7 @@ import Register from "./component/register/register";
 import EmployerRegister from './component/register/employerRegister';
 import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
+<<<<<<< HEAD
 import ensureAuth from '../src/config/auth';
 import axios from 'axios';
 
@@ -34,6 +35,10 @@ import axios from 'axios';
 //       />
 //   )
 // }
+=======
+import JobCard from "./component/jobCards/JobCard"
+import PeopleCard from "./component/peopleCards/PeopleCard"
+>>>>>>> 51ea639015a20d59a3382703e37e83454d978549
 
 class App extends Component {
   state = {
