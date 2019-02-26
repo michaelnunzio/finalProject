@@ -3,9 +3,11 @@ var userCand = require('../../models/candLogin');
 var compUser = require('../../models/compLogin');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+const util = require('util')
 const {ensureAuthenticated} = require("../../config/auth");
-// var flash = require('connect-flash');
-// var App = require('../../client/src/App')
+
+
 
 
 router.get('/compProfile', ensureAuthenticated, function(req, res){
@@ -212,6 +214,38 @@ router.route("/register/employer")
     res.redirect('/register/candidate');
   });
 
+
+  // //test- route to get comp name
+  // router.get('/compProfile', function(req,res){
+
+  //   console.log("test: "+req.body.Company);
+  //   // console.log(util.inspect(req.body.Company, {showHidden: false, depth: null}))
+  //   console.log('-----------------')
+
+  // });
+
+  router.get("/compProfile", function(req, res) {
+    console.log("kjsdghkjhsakjdhlsdjhakjdhsajh")
+    console.log("user", req.user)
+    console.log("------------------------")
+    console.log("I AM LOGGED IN")
+    console.log("------------------------")
+    // Grab every document in the Articles collection
+    compUser.findOne({_id: "5c70c54d5919f44c561627c0"})
+      .then(function(cands) {
+        // If we were able to successfully find Articles, send them back to the client
+        res.json(cands);
+        console.log('testin: ' + cands)
+
+      })
+      .catch(function(err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+      });
+  });
+
+
+
   /*********************************** login for Employer *******************************************/
   router.post('/login/employer', (req,res,next) => {
 
@@ -273,5 +307,28 @@ router.route("/register/employer")
     // res.json(req.isAuthenticated());
     res.json({'auth': req.isAuthenticated()});
   })
+  router.get('/api/users/me',
+  passport.authenticate('basic', { session: false }),
+  function(req, res) {
+    res.json({ id: req.user.id, username: req.user.username });
+  });
+
+
+  const {ensureAuthenticated} = require("./auth")
+
+  router.get("/compProfile", ensureAuthenticated, (req,res)=>{
+
+    console.log(req)
+    console.log("I MADE IT TO DASHBOARD")
+    res.render("userExist")
+  })
+
+
+
+  
+
+
+
+
 
 module.exports = router;
