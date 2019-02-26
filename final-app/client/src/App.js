@@ -10,32 +10,33 @@ import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
 import ensureAuth from '../src/config/auth';
 import axios from 'axios';
-
-
-// function UserProfileRoute ({component: Component}, authed, ...rest){
-//   return(
-//       <Route
-//           {...rest}
-//           render= {(props) => authed === true
-//             ? <Component {...props}/>
-//             : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />}
-//       />
-//   )
-// }
-
-// function CompProfileRoute ({component: Component}, authed, ...rest){
-//   console.log("inside compprofileroute: ",authed);
-//   return(
-//       <Route
-//           {...rest}
-//           render= {(props) => authed === true
-//             ? <Component {...props}/>
-//             : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />}
-//       />
-//   )
-// }
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
+
+
+function UserProfileRoute ({component: Component}, authed, ...rest){
+  console.log("inside userprofileroute: ",authed);
+  return(
+      <Route
+          {...rest}
+          render= {(props) => authed === true
+            ? <Component {...props}/>
+            : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />}
+      />
+  )
+}
+
+function CompProfileRoute ({component: Component}, authed, ...rest){
+  console.log("inside compprofileroute: ",authed);
+  return(
+      <Route
+          {...rest}
+          render= {(props) => authed === true
+            ? <Component {...props}/>
+            : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />}
+      />
+  )
+}
 
 class App extends Component {
   state = {
@@ -53,7 +54,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('render: '+this.state.authedComp);
+    console.log('render: '+this.state.isLoggedIn);
 
     if(this.state.loading) return <div>Loading </div>
     return (
@@ -69,7 +70,8 @@ class App extends Component {
             <Route exact path="/userProfile" component={Profile} />       
             <Route exact path ="/JobCard" component= {JobCard} />  
             <Route exact path ="/PeopleCard" component= {PeopleCard} />     
-            {/* <UserProfileRoute authed={this.state.authedUser} path="/userProfile" component={Profile} /> */}
+            {/* <UserProfileRoute component={Profile} authed={this.state.isLoggedIn} path="/userProfile" />
+            <CompProfileRoute component={CompProfile} authed={this.state.isLoggedIn} path="/compProfile" /> */}
             <Route path="/compProfile"
                 render= {(props) => {
                   console.log(this.state.authedComp)
@@ -89,7 +91,6 @@ class App extends Component {
                 }
             />
            
-            {/* <CompProfileRoute authed={this.state.authedComp} path="/compProfile" component={CompProfile} /> */}
             {/* <Route exact path="/compProfile" component={CompProfile} /> */}
           </Switch>
         </div>
