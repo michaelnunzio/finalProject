@@ -1,6 +1,6 @@
+// import './App.css';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import './App.css';
 import HomePage from "./component/homepage/homepage";
 import Login  from "./component/login/login";
 import EmployerLogin from './component/login/employerLogin';
@@ -36,6 +36,8 @@ import axios from 'axios';
 // }
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
+import './App.css';
+
 
 class App extends Component {
   state = {
@@ -59,8 +61,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <Nav /> */}
           <Switch>
+
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login/candidate" component={Login} />
             <Route exact path="/login/employer" component={EmployerLogin} />
