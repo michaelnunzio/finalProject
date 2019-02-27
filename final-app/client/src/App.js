@@ -8,35 +8,35 @@ import Register from "./component/register/register";
 import EmployerRegister from './component/register/employerRegister';
 import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
-import ensureAuth from '../src/config/auth';
+// import ensureAuth from '../src/config/auth';
 import axios from 'axios';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
 
 
-function UserProfileRoute ({component: Component}, authed, ...rest){
-  console.log("inside userprofileroute: ",authed);
-  return(
-      <Route
-          {...rest}
-          render= {(props) => authed === true
-            ? <Component {...props}/>
-            : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />}
-      />
-  )
-}
+// function UserProfileRoute ({component: Component}, authed, ...rest){
+//   console.log("inside userprofileroute: ",authed);
+//   return(
+//       <Route
+//           {...rest}
+//           render= {(props) => authed === true
+//             ? <Component {...props}/>
+//             : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />}
+//       />
+//   )
+// }
 
-function CompProfileRoute ({component: Component}, authed, ...rest){
-  console.log("inside compprofileroute: ",authed);
-  return(
-      <Route
-          {...rest}
-          render= {(props) => authed === true
-            ? <Component {...props}/>
-            : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />}
-      />
-  )
-}
+// function CompProfileRoute ({component: Component}, authed, ...rest){
+//   console.log("inside compprofileroute: ",authed);
+//   return(
+//       <Route
+//           {...rest}
+//           render= {(props) => authed === true
+//             ? <Component {...props}/>
+//             : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />}
+//       />
+//   )
+// }
 
 class App extends Component {
   state = {
@@ -67,25 +67,24 @@ class App extends Component {
             <Route exact path="/login/employer" component={EmployerLogin} />
             <Route exact path="/register/candidate" component={Register} />
             <Route exact path="/register/employer" component={EmployerRegister} />
-            <Route exact path="/userProfile" component={Profile} />       
             <Route exact path ="/JobCard" component= {JobCard} />  
             <Route exact path ="/PeopleCard" component= {PeopleCard} />     
             {/* <UserProfileRoute component={Profile} authed={this.state.isLoggedIn} path="/userProfile" />
             <CompProfileRoute component={CompProfile} authed={this.state.isLoggedIn} path="/compProfile" /> */}
-            <Route path="/compProfile"
+            <Route path="/userProfile"
                 render= {(props) => {
-                  console.log(this.state.authedComp)
+                  console.log('inside route tag for user: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
-                  ? <CompProfile {...props}/>
+                  ? <Profile {...props}/>
                   : <Redirect to={{pathname: "/", state: {from: props.location}}} />
                 }
                 }
             />
-            <Route path="/userProfile"
+            <Route path="/compProfile"
                 render= {(props) => {
-                  console.log(this.state.authedComp)
+                  console.log('inside route tag for comp: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
-                  ? <Profile {...props}/>
+                  ? <CompProfile {...props}/>
                   : <Redirect to={{pathname: "/", state: {from: props.location}}} />
                 }
                 }

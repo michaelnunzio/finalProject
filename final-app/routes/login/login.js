@@ -268,6 +268,8 @@ router.route("/register/employer")
   router.route("/logout")
     .get((req, res) => {
 
+    console.log(req.session);
+
     console.log('before logout is Authenticated: '+req.isAuthenticated())    
     console.log('before logout is unAuthenticated: '+req.isUnauthenticated());
     console.log('logging out')
