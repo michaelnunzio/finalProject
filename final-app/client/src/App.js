@@ -10,6 +10,8 @@ import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
+import compHome from "./component/compHome/compHome"
+import userHome from "./component/userHome/userHome"
 
 class App extends Component {
 
@@ -29,7 +31,9 @@ class App extends Component {
             <Route exact path="/userProfile" component={Profile} />
             <Route exact path="/compProfile" component={CompProfile} /> 
             <Route exact path ="/JobCard" component= {JobCard} />  
-            <Route exact path ="/PeopleCard" component= {PeopleCard} />     
+            <Route exact path ="/PeopleCard" component= {PeopleCard} />  
+            <Route exact path ="/compHome" component= {compHome} />   
+            <Route exact path ="/userHome" component= {userHome} />   
           </Switch>
         </div>
       </Router>
