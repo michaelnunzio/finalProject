@@ -329,11 +329,4 @@ router.route("/register/employer")
   // })
 
 
-
-  
-
-
-
-
-
 module.exports = router;

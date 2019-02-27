@@ -56,7 +56,10 @@ class App extends Component {
   render() {
     console.log('render: '+this.state.isLoggedIn);
 
-    if(this.state.loading) return <div>Loading </div>
+    if(this.state.loading) 
+    return  <div className="progress">
+              <div className="indeterminate"></div>
+            </div>
     return (
       <Router>
         <div>
@@ -67,8 +70,26 @@ class App extends Component {
             <Route exact path="/login/employer" component={EmployerLogin} />
             <Route exact path="/register/candidate" component={Register} />
             <Route exact path="/register/employer" component={EmployerRegister} />
-            <Route exact path ="/JobCard" component= {JobCard} />  
-            <Route exact path ="/PeopleCard" component= {PeopleCard} />     
+            {/* <Route exact path ="/JobCard" component= {JobCard} /> */}
+            <Route path="/userProfile/JobCard"
+                render= {(props) => {
+                  console.log('inside route tag for user: ',this.state.isLoggedIn)
+                  return this.state.isLoggedIn === true
+                  ? <JobCard {...props}/>
+                  : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
+                }
+                }
+            />  
+            {/* <Route exact path ="/PeopleCard" component= {PeopleCard} /> */}
+            <Route path="/compProfile/PeopleCard"
+                render= {(props) => {
+                  console.log('inside route tag for user: ',this.state.isLoggedIn)
+                  return this.state.isLoggedIn === true
+                  ? <PeopleCard {...props}/>
+                  : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />
+                }
+                }
+            />       
             {/* <UserProfileRoute component={Profile} authed={this.state.isLoggedIn} path="/userProfile" />
             <CompProfileRoute component={CompProfile} authed={this.state.isLoggedIn} path="/compProfile" /> */}
             <Route path="/userProfile"
@@ -76,7 +97,7 @@ class App extends Component {
                   console.log('inside route tag for user: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
                   ? <Profile {...props}/>
-                  : <Redirect to={{pathname: "/", state: {from: props.location}}} />
+                  : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
                 }
                 }
             />
@@ -85,7 +106,7 @@ class App extends Component {
                   console.log('inside route tag for comp: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
                   ? <CompProfile {...props}/>
-                  : <Redirect to={{pathname: "/", state: {from: props.location}}} />
+                  : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />
                 }
                 }
             />
