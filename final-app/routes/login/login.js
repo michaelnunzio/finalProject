@@ -10,16 +10,6 @@ const {ensureAuthenticated} = require("../../config/auth");
 
 
 
-router.get('/compProfile', ensureAuthenticated, function(req, res){
-  console.log('data req' + req);
-  console.log('I made it');
-  
-// req.user
-
-  // res.redirect('/compProfile');
-})
-
-
 /******************************* router to register candidate details to db *********************************/
 router.route("/register/candidate")
   .post(function(req, res){
@@ -38,16 +28,6 @@ router.route("/register/candidate")
 
       console.log(firstName);
 
-      // Validation
-      // req.checkBody('firstName', "First Name is Required").notEmpty();
-      // req.checkBody('lastName', 'Last Name is required').notEmpty();
-      // req.checkBody('email', 'Email is required').notEmpty();
-      // req.checkBody('email', 'Email is not valid').isEmail();
-      // req.checkBody('password', 'Email is required').notEmpty();
-      // req.checkBody('password2', 'Passwords do not match').equals(req.body.password)
-      // req.checkBody('title', 'Title is required').notEmpty();
-      // req.checkBody('description', 'Description is required').notEmpty();
-      // req.checkBody('technologies', 'Technologies is required').notEmpty();
 
       var errors = req.validationErrors();
 
@@ -181,8 +161,8 @@ router.route("/register/employer")
   ));
 
   passport.serializeUser(function(user, done) {
-    console.log("*******************************")
-    console.log(user)
+    // console.log("*******************************")
+    // console.log(user)
     var userData = {
       id: user._id,
       company: user.company
@@ -235,7 +215,7 @@ router.route("/register/employer")
   //   // console.log("I AM LOGGED IN")
   //   // console.log("------------------------")
   //   // Grab every document in the Articles collection
-  //   compUser.find({})
+  //   compUser.find(se)
   //   .then(function(cands) {
   //     // If we were able to successfully find Articles, send them back to the client
   //     req.json(cands);
@@ -274,9 +254,11 @@ router.route("/register/employer")
     .get((req, res) => {
 
     req.logout();
-    console.log('logging out')
-    console.log('is Authenticated: '+req.isAuthenticated())
-    console.log('is unAuthenticated: '+req.isUnauthenticated());
+
+    // console.log('logging out')
+    // console.log('is Authenticated: '+req.isAuthenticated())
+    // console.log('is unAuthenticated: '+req.isUnauthenticated());
+
   //   // req.flash('success_msg', 'You are logged out');
   //   // req.flash('success_msg', 'You are registered and can now login');
   //   // console.log('you are now registered and can login');
@@ -296,19 +278,44 @@ router.route("/register/employer")
   //   }
   // });
 
-  router.route('/compProfile')
-    .get((req, res) => {
-      console.log("authenticate in get compProfile: "+req.isAuthenticated());
-      console.log("unAuthenticate in get compProfile: "+req.isUnauthenticated());
-    })
+  // router.route('/compProfile')
+  //   .get((req, res) => {
+  //     console.log("authenticate in get compProfile: "+req.isAuthenticated());
+  //     console.log("unAuthenticate in get compProfile: "+req.isUnauthenticated());
+  //   })
 
   router.get('/auth/user',
   (req, res) => {
-    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    console.log(req.user)
-    console.log('new Authenticated get route: '+req.isAuthenticated());
+
+    // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    // console.log(req.user)
+    // console.log('new Authenticated get route: '+req.isAuthenticated());
+
     // res.json(req.isAuthenticated());
-    res.json({'auth': req.isAuthenticated()});
+    res.json({
+      'auth': req.isAuthenticated(),
+      'user': req.user
+    });
+    // res.json({'user': req.user});
+
   })
+  router.get('/api/users/me',
+  passport.authenticate('basic', { session: false }),
+  function(req, res) {
+    res.json({ id: req.user.id, username: req.user.username });
+  });
+
+
+  // const {ensureAuthenticated} = require("./auth")
+
+  // router.get("/compProfile", ensureAuthenticated, (req,res)=>{
+
+  //   console.log(req)
+  //   console.log("I MADE IT TO DASHBOARD")
+  //   res.render("userExist")
+  // })
+
+
+
 
 module.exports = router;

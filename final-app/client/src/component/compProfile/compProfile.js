@@ -8,28 +8,18 @@ import NavBar from "../nav/navBar"
 
 
 export default class companyHomePage extends Component{
-    componentDidMount() {
-        axios.get(`/compProfile`)
-            .then((response) => {
-                this.setState({
-                    data: response.data
-                });
-                console.log('--------------------------')
-                console.log('datadatadata',response.data)
-                console.log('--------------------------')
-            }).catch((error) => {
-                console.error(error);
-            });
-     }
-        render(){
+// componentWillMount(){
+
+// }
+        render(props){
+            console.log(props)
         return(
             <React.Fragment>
            <NavBar/>
             <div className="jumbotron center">
                 <div className="container">
-                    <h1 className="display-3">Welcome {this.data}</h1>
-                    <p>Welcome to your company profile
-                    </p>
+                    <h1 className="display-3">Welcome, {this.props.user} </h1>
+                    <p>Welcome to your company profile</p>
                 </div>
             </div>
             </React.Fragment>

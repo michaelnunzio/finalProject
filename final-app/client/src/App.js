@@ -36,26 +36,28 @@ import axios from 'axios';
 // }
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
-import './App.css';
-
 
 class App extends Component {
   state = {
     isLoggedIn: false,
-    loading: true
+    loading: true,
+    user: '',
+    candy: ''
   };
 
   
   componentWillMount() {
      axios.get('/auth/user').then((data)=>{
-      //  console.log(data.data.auth);
-       this.setState({isLoggedIn: data.data.auth, loading: false});
-     })
+       console.log(data.data);
+      //  console.log('first N : ' + data.data.user.first + ' ' + data.data.user.last)
+       this.setState({isLoggedIn: data.data.auth, loading: false,  user: data.data.user.company, candy: data.data.user.first + ' ' + data.data.user.last });
+      console.log('from state Comp Name: ', this.state.user)
+      console.log('from state Candidate Name: ', this.state.candy)
+     });
 
   }
 
   render() {
-    console.log('render: '+this.state.authedComp);
 
     if(this.state.loading) return <div>Loading </div>
     return (
@@ -68,7 +70,7 @@ class App extends Component {
             <Route exact path="/login/employer" component={EmployerLogin} />
             <Route exact path="/register/candidate" component={Register} />
             <Route exact path="/register/employer" component={EmployerRegister} />
-            <Route exact path="/userProfile" component={Profile} />       
+            {/* <Route exact path="/userProfile" component={Profile} />        */}
             <Route exact path ="/JobCard" component= {JobCard} />  
             <Route exact path ="/PeopleCard" component= {PeopleCard} />     
             {/* <UserProfileRoute authed={this.state.authedUser} path="/userProfile" component={Profile} /> */}
@@ -76,7 +78,7 @@ class App extends Component {
                 render= {(props) => {
                   console.log(this.state.authedComp)
                   return this.state.isLoggedIn === true
-                  ? <CompProfile {...props}/>
+                  ? <CompProfile {...props} user={this.state.user} />
                   : <Redirect to={{pathname: "/", state: {from: props.location}}} />
                 }
                 }
@@ -85,7 +87,7 @@ class App extends Component {
                 render= {(props) => {
                   console.log(this.state.authedComp)
                   return this.state.isLoggedIn === true
-                  ? <Profile {...props}/>
+                  ? <Profile {...props} candy={this.state.candy}/>
                   : <Redirect to={{pathname: "/", state: {from: props.location}}} />
                 }
                 }
@@ -97,6 +99,7 @@ class App extends Component {
         </div>
       </Router>
     )
+              
   }
 }
 
