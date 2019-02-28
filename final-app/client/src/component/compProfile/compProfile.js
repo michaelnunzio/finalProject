@@ -8,9 +8,17 @@ import NavBar from "../nav/navBar"
 
 
 export default class companyHomePage extends Component{
-// componentWillMount(){
-
-// }
+    state={
+        user:''
+    }
+    componentWillMount(){
+        axios.get('/auth/user').then((data)=>{
+          this.setState({
+              user: data.data.user.company, 
+          })
+            console.log('from state Comp Name: ', this.state.user)
+        })
+      }
         render(props){
             console.log(props)
         return(
@@ -18,7 +26,7 @@ export default class companyHomePage extends Component{
            <NavBar/>
             <div className="jumbotron center">
                 <div className="container">
-                    <h1 className="display-3">Welcome, {this.props.user} </h1>
+                    <h1 className="display-3">Welcome, {this.state.user} </h1>
                     <p>Welcome to your company profile</p>
                 </div>
             </div>

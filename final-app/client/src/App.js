@@ -14,46 +14,24 @@ import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
 
 
-// function UserProfileRoute ({component: Component}, authed, ...rest){
-//   console.log("inside userprofileroute: ",authed);
-//   return(
-//       <Route
-//           {...rest}
-//           render= {(props) => authed === true
-//             ? <Component {...props}/>
-//             : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />}
-//       />
-//   )
-// }
-
-// function CompProfileRoute ({component: Component}, authed, ...rest){
-//   console.log("inside compprofileroute: ",authed);
-//   return(
-//       <Route
-//           {...rest}
-//           render= {(props) => authed === true
-//             ? <Component {...props}/>
-//             : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />}
-//       />
-//   )
-// }
-
 class App extends Component {
   state = {
     isLoggedIn: false,
     loading: true,
-    user: '',
-    candy: ''
   };
+
+
 
   
   componentWillMount() {
      axios.get('/auth/user').then((data)=>{
        console.log(data.data);
-      //  console.log('first N : ' + data.data.user.first + ' ' + data.data.user.last)
-       this.setState({isLoggedIn: data.data.auth, loading: false,  user: data.data.user.company, candy: data.data.user.first + ' ' + data.data.user.last });
-      console.log('from state Comp Name: ', this.state.user)
-      console.log('from state Candidate Name: ', this.state.candy)
+
+       this.setState({
+         isLoggedIn: data.data.auth, 
+         loading: false,  
+        });
+
      });
   }
 
@@ -103,7 +81,7 @@ class App extends Component {
                 render= {(props) => {
                   console.log('inside route tag for user: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
-                  ? <Profile {...props} candy={this.state.candy}/>
+                  ? <Profile {...props} />
                   : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
                 }
                 }
@@ -112,7 +90,7 @@ class App extends Component {
                 render= {(props) => {
                   console.log('inside route tag for comp: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
-                  ? <CompProfile {...props} user={this.state.user}/>
+                  ? <CompProfile {...props} />
                   : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />
                 }
                 }
