@@ -17,17 +17,20 @@ export default class NavBar extends Component{
     //     super();
 
     //     this.state = {
-    //         showMenu = false
+    //         showMenu: false
     //     };
     // }
 
-    // componentWillMount(){
+    // componentDidMount(){
     //     axios.get('/auth/user').then((data)=>{
     //         this.setState({showMenu: data.data.auth})
     //     })
     // }
 
     render(){
+
+        // const style = this.state.showMenu ? {display: 'none'} : {};
+
         return(
         <React.Fragment>
                 <div className="wrapper">
