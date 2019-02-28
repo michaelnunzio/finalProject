@@ -11,7 +11,14 @@ function userHome(){
 
                 
 
-                <p>Editing options as follows</p>
+                <p>Editing options are as follows</p>
+
+                    <ol>Name</ol>
+                    <ol>Address</ol>
+                    <ol>E-mail</ol>
+                    <ol>Phone Number</ol>
+                    <ol>Favorite Technologies</ol>
+                    
 
                 <p><a class="btn btn-primary btn-lg" href="/" role="button">Learn more &raquo;</a></p>
             </div>
