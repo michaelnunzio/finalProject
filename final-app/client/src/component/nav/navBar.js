@@ -13,23 +13,25 @@ function handleLogout(){
 
 export default class NavBar extends Component{
 
-    // constructor(){
-    //     super();
+    constructor(){
+        super();
 
-    //     this.state = {
-    //         showMenu: false
-    //     };
-    // }
+        this.state = {
+            showMenu: false
+        };
+    }
 
-    // componentDidMount(){
-    //     axios.get('/auth/user').then((data)=>{
-    //         this.setState({showMenu: data.data.auth})
-    //     })
-    // }
+    componentWillMount(){
+        axios.get('/auth/user').then((data)=>{
+            this.setState({showMenu: data.data.auth})
+            console.log('nav button status: '+this.state.showMenu);
+        })
+    }
 
     render(){
 
-        // const style = this.state.showMenu ? {display: 'none'} : {};
+        const styleLogout = this.state.showMenu ? {} : {display: 'none'};
+        const otherBtn = this.state.showMenu ? {display: 'none'} : {};
 
         return(
         <React.Fragment>
@@ -51,9 +53,9 @@ export default class NavBar extends Component{
                         <a href="/" className="brand-logo"><img className="responsive-img jHlogo" alt='logo' src={logo} /></a>
                         <ul className="right hide-on-med-and-down">
                             <li><a href="/"><i className="material-icons left">home</i>Home</a></li>                    
-                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown2"><i className="material-icons left">assignment_ind</i>Login<i className="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a href="/" id="logout" onClick={handleLogout}><i className="material-icons left">lock</i>Logout</a></li>
-                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="material-icons left">assignment</i>Register<i className="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown2" style={otherBtn}><i className="material-icons left">assignment_ind</i>Login<i className="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a href="/" id="logout" onClick={handleLogout} style={styleLogout}><i className="material-icons left">lock</i>Logout</a></li>
+                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown1" style={otherBtn}><i className="material-icons left">assignment</i>Register<i className="material-icons right">arrow_drop_down</i></a></li>
 
                         </ul>
                         </div>

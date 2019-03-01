@@ -3,18 +3,9 @@ var userCand = require('../../models/candLogin');
 var compUser = require('../../models/compLogin');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var flash = require('connect-flash');
-const util = require('util')
-const {ensureAuthenticated} = require("../../config/auth");
-
-
-
-
-router.get('/compProfile', ensureAuthenticated, function(req, res){
-  console.log(req);
-  console.log('I made it')
-  // res.redirect('/compProfile');
-})
+// var flash = require('connect-flash');
+// const util = require('util')
+// const {ensureAuthenticated} = require("../../config/auth");
 
 
 /******************************* router to register candidate details to db *********************************/
@@ -140,18 +131,6 @@ router.route("/register/employer")
     }
   ));
 
-  // passport.serializeUser(function(user, done) {
-  //   done(null, user.id);
-  // });
-  
-  // passport.deserializeUser(function(id, done) {
-  //   // console.log(id);
-  //   userCand.getUserById(id, function(err, user) {
-  //     // console.log(user);
-  //     done(err, user);
-  //   });
-  // });
-
   /************************* Passport authentication for Employer ******************************/
   passport.use('employer', new LocalStrategy(
     function(username, password, done) {
@@ -214,16 +193,6 @@ router.route("/register/employer")
     res.redirect('/register/candidate');
   });
 
-
-  // //test- route to get comp name
-  // router.get('/compProfile', function(req,res){
-
-  //   console.log("test: "+req.body.Company);
-  //   // console.log(util.inspect(req.body.Company, {showHidden: false, depth: null}))
-  //   console.log('-----------------')
-
-  // });
-
   router.get("/compProfile", function(req, res) {
     console.log("kjsdghkjhsakjdhlsdjhakjdhsajh")
     console.log("user", req.user)
@@ -277,24 +246,7 @@ router.route("/register/employer")
     console.log('is Authenticated: '+req.isAuthenticated())
     console.log('is unAuthenticated: '+req.isUnauthenticated());
     res.redirect('/')
-  //   // req.flash('success_msg', 'You are logged out');
-  //   // req.flash('success_msg', 'You are registered and can now login');
-  //   // console.log('you are now registered and can login');
-    // res.render('/');
   })
-  // router.get('/logout', function(req, res, next) {
-  //   console.log('logging out')
-  //   if (req.session) {
-  //     // delete session object
-  //     req.session.destroy(function(err) {
-  //       if(err) {
-  //         return next(err);
-  //       } else {
-  //         return res.redirect('/');
-  //       }
-  //     });
-  //   }
-  // });
 
   router.route('/compProfile')
     .get((req, res) => {
@@ -317,16 +269,5 @@ router.route("/register/employer")
   function(req, res) {
     res.json({ id: req.user.id, username: req.user.username });
   });
-
-
-  // const {ensureAuthenticated} = require("./auth")
-
-  // router.get("/compProfile", ensureAuthenticated, (req,res)=>{
-
-  //   console.log(req)
-  //   console.log("I MADE IT TO DASHBOARD")
-  //   res.render("userExist")
-  // })
-
 
 module.exports = router;
