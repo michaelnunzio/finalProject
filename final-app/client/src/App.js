@@ -16,20 +16,28 @@ import PeopleCard from "./component/peopleCards/PeopleCard"
 class App extends Component {
   state = {
     isLoggedIn: false,
-    loading: true
+    loading: true,
   };
+
+
 
   
   componentWillMount() {
      axios.get('/auth/user').then((data)=>{
-      //  console.log(data.data.auth);
-       this.setState({isLoggedIn: data.data.auth, loading: false});
-     })
+       console.log(data.data);
 
+       this.setState({
+         isLoggedIn: data.data.auth, 
+         loading: false,  
+        });
+
+     });
   }
 
   render() {
+
     console.log('render: '+this.state.isLoggedIn);
+
 
     if(this.state.loading) 
     return  <div className="progress">
@@ -49,6 +57,8 @@ class App extends Component {
                 render= {(props) => {
                   console.log('inside route tag for user: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
+//                   ? <CompProfile {...props} user={this.state.user} />
+//                   : <Redirect to={{pathname: "/", state: {from: props.location}}} //
                   ? <JobCard {...props}/>
                   : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
                 }
@@ -67,7 +77,7 @@ class App extends Component {
                 render= {(props) => {
                   console.log('inside route tag for user: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
-                  ? <Profile {...props}/>
+                  ? <Profile {...props} />
                   : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
                 }
                 }
@@ -76,7 +86,7 @@ class App extends Component {
                 render= {(props) => {
                   console.log('inside route tag for comp: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
-                  ? <CompProfile {...props}/>
+                  ? <CompProfile {...props} />
                   : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />
                 }
                 }
@@ -85,6 +95,7 @@ class App extends Component {
         </div>
       </Router>
     )
+              
   }
 }
 

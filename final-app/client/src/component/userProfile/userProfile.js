@@ -1,20 +1,36 @@
-import React from "react";
+import React, { Component } from 'react';
+import axios from 'axios';
 import "./userProfile.css";
 import NavBar from '../nav/navBar';
 
-function homePage(){
-    return(
-        <React.Fragment>
-            <NavBar />
-            <div className="jumbotron center">
-                <div className="container">
-                    <h1 className="display-3">Welcome User</h1>
-                    <p>Welcome to your profile
-                    </p>
+export default class homePage extends Component{
+    state={
+        candy:''
+    }
+    componentWillMount(){
+
+        axios.get('/auth/user').then((data)=>{
+          this.setState({
+              candy: data.data.user.first + ' ' + data.data.user.last
+          })
+            console.log('from state Candy Name: ', this.state.candy)
+        })
+      }
+
+        render(){
+        return(
+            <React.Fragment>
+                <NavBar />
+                <div className="jumbotron center">
+                    <div className="container">
+                        <h1 className="display-3">Welcome, {this.state.candy}</h1>
+                        <p>Welcome to your profile
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </React.Fragment>
-    )
+            </React.Fragment>
+        )
+        }
 }
 
-export default homePage;
+// export default homePage;

@@ -3,7 +3,7 @@ import React from "react";
 import NavBar from "../nav/navBar"
 // import React, {Component} from "react";
 import "./login.css";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 
 function login(){

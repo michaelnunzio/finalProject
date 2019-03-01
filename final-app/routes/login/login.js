@@ -26,16 +26,6 @@ router.route("/register/candidate")
 
       console.log(firstName);
 
-      // Validation
-      // req.checkBody('firstName', "First Name is Required").notEmpty();
-      // req.checkBody('lastName', 'Last Name is required').notEmpty();
-      // req.checkBody('email', 'Email is required').notEmpty();
-      // req.checkBody('email', 'Email is not valid').isEmail();
-      // req.checkBody('password', 'Email is required').notEmpty();
-      // req.checkBody('password2', 'Passwords do not match').equals(req.body.password)
-      // req.checkBody('title', 'Title is required').notEmpty();
-      // req.checkBody('description', 'Description is required').notEmpty();
-      // req.checkBody('technologies', 'Technologies is required').notEmpty();
 
       var errors = req.validationErrors();
 
@@ -157,8 +147,8 @@ router.route("/register/employer")
   ));
 
   passport.serializeUser(function(user, done) {
-    console.log("*******************************")
-    console.log(user)
+    // console.log("*******************************")
+    // console.log(user)
     var userData = {
       id: user._id,
       company: user.company
@@ -193,25 +183,37 @@ router.route("/register/employer")
     res.redirect('/register/candidate');
   });
 
-  router.get("/compProfile", function(req, res) {
-    console.log("kjsdghkjhsakjdhlsdjhakjdhsajh")
-    console.log("user", req.user)
-    console.log("------------------------")
-    console.log("I AM LOGGED IN")
-    console.log("------------------------")
-    // Grab every document in the Articles collection
-    compUser.findOne({_id: "5c70c54d5919f44c561627c0"})
-      .then(function(cands) {
-        // If we were able to successfully find Articles, send them back to the client
-        res.json(cands);
-        console.log('testin: ' + cands)
 
-      })
-      .catch(function(err) {
-        // If an error occurred, send it to the client
-        res.json(err);
-      });
-  });
+  // //test- route to get comp name
+  // router.get('/compProfile', function(req,res){
+
+  //   console.log("test: "+req.body.Company);
+  //   // console.log(util.inspect(req.body.Company, {showHidden: false, depth: null}))
+  //   console.log('-----------------')
+
+  // });
+
+
+  // router.get("/compProfile", function(req, res) {
+  //   // console.log("kjsdghkjhsakjdhlsdjhakjdhsajh")
+  //   // console.log("user", req.user)
+  //   // console.log("------------------------")
+  //   // console.log("I AM LOGGED IN")
+  //   // console.log("------------------------")
+  //   // Grab every document in the Articles collection
+  //   compUser.find(se)
+  //   .then(function(cands) {
+  //     // If we were able to successfully find Articles, send them back to the client
+  //     req.json(cands);
+  //     console.log('------------------')
+  //     console.log('response: ' + cands)
+  //     console.log('------------------')
+  //   })
+  //   .catch(function(err) {
+  //     // If an error occurred, send it to the client
+  //     res.json(err);
+  //   });
+  // });
 
 
 
@@ -237,6 +239,7 @@ router.route("/register/employer")
   router.route("/logout")
     .get((req, res) => {
 
+
     console.log(req.session);
 
     console.log('before logout is Authenticated: '+req.isAuthenticated())    
@@ -246,21 +249,33 @@ router.route("/register/employer")
     console.log('is Authenticated: '+req.isAuthenticated())
     console.log('is unAuthenticated: '+req.isUnauthenticated());
     res.redirect('/')
+
+  //   // req.flash('success_msg', 'You are logged out');
+  //   // req.flash('success_msg', 'You are registered and can now login');
+  //   // console.log('you are now registered and can login');
+    // res.render('/');
   })
 
-  router.route('/compProfile')
-    .get((req, res) => {
-      console.log("authenticate in get compProfile: "+req.isAuthenticated());
-      console.log("unAuthenticate in get compProfile: "+req.isUnauthenticated());
-    })
+  // router.route('/compProfile')
+  //   .get((req, res) => {
+  //     console.log("authenticate in get compProfile: "+req.isAuthenticated());
+  //     console.log("unAuthenticate in get compProfile: "+req.isUnauthenticated());
+  //   })
 
   router.get('/auth/user',
   (req, res) => {
-    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    console.log(req.user)
-    console.log('new Authenticated get route: '+req.isAuthenticated());
+
+    // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    // console.log(req.user)
+    // console.log('new Authenticated get route: '+req.isAuthenticated());
+
     // res.json(req.isAuthenticated());
-    res.json({'auth': req.isAuthenticated()});
+    res.json({
+      'auth': req.isAuthenticated(),
+      'user': req.user
+    });
+    // res.json({'user': req.user});
+
   })
 
 
