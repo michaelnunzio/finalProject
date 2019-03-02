@@ -12,6 +12,7 @@ import CompProfile from './component/compProfile/compProfile';
 import axios from 'axios';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
+import CandPro from './component/editPro/candPro';
 
 
 
@@ -99,6 +100,15 @@ class App extends Component {
                 }
                 }
             />
+            <Route path='/editProfile'
+                render= {(props) => {
+                  console.log('inside route tag for comp: ',this.state.isLoggedIn)
+                  return this.state.isLoggedIn === true
+                  ? <CandPro {...props} />
+                  : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
+                }
+                }
+              />
            
             {/* <Route exact path="/compProfile" component={CompProfile} /> */}
           </Switch>

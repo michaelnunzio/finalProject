@@ -3,13 +3,35 @@
     background-color: lightgrey;
     /* color: #aaa !important */
 }
-/* nav{
-    background-color: transparent !important;
+nav{
+    /* background-color: transparent !important; */
+    color: black;
+    height:0px;
 
-  } */
+  }
 
 .jHlogo{
     height: 60%;
     width: 60%;
+    margin-top: 5px;
 }
+
+.nahHov:hover{
+    color: green;    
+    }
+
+    .dropdown-content li>a, .dropdown-content li>span{
+        color: teal;
+        text-shadow: 3px 3px white;
+        /* background-color: teal; */
+    }
+
+    .dropdown-content{
+        border-radius: 0px 0px 20px 20px;;
+    }
+
+    a:hover{
+        color: teal;
+    }
+
 
