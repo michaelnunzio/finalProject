@@ -1,0 +1,15 @@
+.nav-wrapper{
+    opacity: 1;
+    background-color: lightgrey;
+    /* color: #aaa !important */
+}
+/* nav{
+    background-color: transparent !important;
+
+  } */
+
+.jHlogo{
+    height: 60%;
+    width: 60%;
+}
+

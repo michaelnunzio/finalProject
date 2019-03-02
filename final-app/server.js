@@ -16,6 +16,10 @@ const users = require("./routes/login/login")
 var db = mongoose.connect;
 const app = express();
 const PORT = process.env.PORT || 3001;
+const routes = require("./routes/login/empdata")
+
+app.use(routes)
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -73,16 +77,23 @@ app.use(expressValidator({
   
 
 //Global Variables
-app.use(function(req,res,next){
-    res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
-    res.locals.error = req.flash('error');
-    res.locals.user = req.user || null;
-    next();
-})
+// app.use(function(req,res,next){
+//     res.locals.success_msg = req.flash('success_msg');
+//     res.locals.error_msg = req.flash('error_msg');
+//     res.locals.error = req.flash('error');
+//     res.locals.user = req.user || null;
+//     next();
+// })
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jobhuntr");
+
+
+
+
+
+
+
 
 // Start the API server
 app.listen(PORT, function() {

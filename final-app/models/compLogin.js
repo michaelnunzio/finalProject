@@ -76,6 +76,12 @@ module.exports.createCompUser = function(newUser, callback){
     // var query = {email: username}
     compUser.findById(id, callback)
   }
+
+  module.exports.getCompUserId = function(id, callback){
+    // var query = {email: username}
+    compUser.findById(id, callback)
+    
+  }
   
   module.exports.comparePassword = function(userPassword, hash, callback){
     bcrypt.compare(userPassword, hash, function(err, isMatch) {
