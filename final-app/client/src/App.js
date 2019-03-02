@@ -12,8 +12,7 @@ import CompProfile from './component/compProfile/compProfile';
 import axios from 'axios';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
-import compHome from "./component/compHome/compHome"
-import userHome from "./component/userHome/userHome"
+
 
 
 class App extends Component {
