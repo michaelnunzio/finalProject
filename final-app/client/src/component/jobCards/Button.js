@@ -10,7 +10,7 @@ export default class Button extends Component {
   constructor() {
     super()
     this.state = {
-      pressed: false,
+      pressed: false 
     }
   }
 
@@ -40,23 +40,43 @@ export default class Button extends Component {
   }
 
   handleMouseDown(event) {
+
+    if(this.props.posOrNeg === "positive") {
+      console.log("this is true")
+
+    }
+
+    if(this.props.posOrNeg === "negative") {
+      console.log("this is negative")
+
+    }
+
+    
+
+
     this.setState({pressed: true})
   }
 
-  handleMouseUp(event) {
-    this.setState({pressed: false})
-  }
+  // handleMouseUp(event) {
+  //   this.setState({pressed: false})
+  // }
 
   render() {
     let dynamicStyle
     if (this.state.pressed) {
         dynamicStyle = {boxShadow: '0px 0px 10px 3px rgba(0, 0, 0, 0.2)'}
     }
-
+    console.log(this.props)
+    console.log(this.props.cards[0])
+    
     return (
-      <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind(this)} onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)} onMouseLeave={this.handleMouseUp.bind(this)} onTouchStart={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseUp.bind(this)} onTouchCancel={this.handleMouseUp.bind(this)} style={dynamicStyle}>
+      // <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind(this)} onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)} onMouseLeave={this.handleMouseUp.bind(this)} onTouchStart={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseUp.bind(this)} onTouchCancel={this.handleMouseUp.bind(this)} style={dynamicStyle}>
+      //   <i className={"fa fa-" + this.props.heartOrTimes + " fa-5x"} />
+      // </div>
+      <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind(this)} onMouseDown={this.handleMouseDown.bind(this)}  onTouchStart={this.handleMouseDown.bind(this)} style={dynamicStyle}>
         <i className={"fa fa-" + this.props.heartOrTimes + " fa-5x"} />
       </div>
     )
   }
 }
+
