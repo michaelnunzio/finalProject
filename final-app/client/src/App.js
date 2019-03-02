@@ -95,6 +95,15 @@ class App extends Component {
                 }
                 }
             />
+            <Route path='/userProfile/editProfile'
+                render= {(props) => {
+                  console.log('inside route tag for comp: ',this.state.isLoggedIn)
+                  return this.state.isLoggedIn === true
+                  ? <CompProfile {...props} />
+                  : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
+                }
+                }
+              />
            
             {/* <Route exact path="/compProfile" component={CompProfile} /> */}
           </Switch>

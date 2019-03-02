@@ -5,7 +5,7 @@ import Buttons from './Buttons'
 import CardDeck from './CardDeck'
 import Title from "./Title"
 import axios from "axios"
-import NavBar from "../navbar/navbar"
+import NavBar from '../nav/navBar'
 
 const IMAGE_URLS = [{"name": "leigh", "title": "web developer", "tech": "HTML, JavaScript, CSS", "company": "Amazon" },{"name":"Vinit", "title": "full stack developer", "tech": "Java, JavaScript", "company": "google"},{"name": "mike", "title": "coder", "tech": "vue.js", "company": "netflix"},{"name": "Jimmy", "title": "good at things", "tech": "MERN", "company": "FaceBook"}]
 

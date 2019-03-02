@@ -3,7 +3,7 @@ import Buttons from './Buttons'
 import CardDeck from './CardDeck'
 import Title from "./Title"
 import axios from 'axios'
-import NavBar from "../navbar/navbar"
+import NavBar from '../nav/navBar'
 
 
 
