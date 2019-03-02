@@ -40,4 +40,32 @@ router.get("/allcands", function(req, res) {
         res.json(err);
       });
   });
+
+
+  router.post('/allcands', function(req, res){
+    console.log(req.session)
+    console.log('pass: ++ ', req.session.passport)
+    // console.log(req.session.passport.email)
+
+    userCand.findByIdAndUpdate(req.session.passport.user.id, 
+      {$set:{email: req.body.Email, title: req.body.Title, 
+      technologies: req.body.Technologies, github: req.body.Github, 
+      project: req.body.Project
+    }},function (err,user){
+      if(err){
+          res.redirect("/")
+      } else {
+      user.save()
+      res.redirect('/editProfile')
+      }
+    }
+      )});
+
+
+      // var email = req.body.Email;
+      // var title = req.body.Title;
+      // var description = req.body.Description;
+      // var technologies = req.body.Technologies;
+      // var github = req.body.Github;
+      // var project = req.body.Project; 
 module.exports = router;
