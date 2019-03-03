@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TWEEN from '@tweenjs/tween.js'
+import axios from "axios"; 
 
 function animate(time) {
   requestAnimationFrame(animate);
@@ -10,8 +11,21 @@ export default class Button extends Component {
   constructor() {
     super()
     this.state = {
-      pressed: false 
+      pressed: false, 
+      candy: ""
     }
+  }
+
+  componentWillMount(){
+
+    axios.get('/auth/user').then((data)=>{
+      this.setState({
+          candy: data.data.user._id
+          
+      })
+        // console.log('from state Candy Name: ', this.state.candy)
+        console.log(this.state.candy)
+    })
   }
 
   componentDidMount() {
@@ -39,12 +53,20 @@ export default class Button extends Component {
     }
   }
 
-  handleMouseDown(event) {
+  handleMouseDown = (event)=> {
 
     if(this.props.posOrNeg === "positive") {
       console.log("this is true")
 
+      axios.post('/allcandsy', {
+      candy: this.state.candy, 
+      jobcards: this.props.cards[0]
+
+      }).then((data)=>{
+       console.log(data)
+      })
     }
+
 
     if(this.props.posOrNeg === "negative") {
       console.log("this is negative")
@@ -73,7 +95,7 @@ export default class Button extends Component {
       // <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind(this)} onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)} onMouseLeave={this.handleMouseUp.bind(this)} onTouchStart={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseUp.bind(this)} onTouchCancel={this.handleMouseUp.bind(this)} style={dynamicStyle}>
       //   <i className={"fa fa-" + this.props.heartOrTimes + " fa-5x"} />
       // </div>
-      <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind(this)} onMouseDown={this.handleMouseDown.bind(this)}  onTouchStart={this.handleMouseDown.bind(this)} style={dynamicStyle}>
+      <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind(this)} onMouseDown={this.handleMouseDown}  onTouchStart={this.handleMouseDown.bind(this)} style={dynamicStyle}>
         <i className={"fa fa-" + this.props.heartOrTimes + " fa-5x"} />
       </div>
     )

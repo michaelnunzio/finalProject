@@ -40,4 +40,21 @@ router.get("/allcands", function(req, res) {
         res.json(err);
       });
   });
+
+
+  router.post("/allcandsy", function(req,res) {
+    console.log('anything');
+    console.log("this is our cand"+ req.body.candy)
+    console.log("this is the job we are interested in" + req.body.jobcards._id)
+
+    userCand.findByIdAndUpdate(
+     req.body.candy,
+     {$addToSet: {"yes": {companyid: req.body.jobcards._id}}},
+     {safe: true, upsert: true, new : true},
+        function(err, model) {
+            console.log(err);
+        }
+
+    )
+  }); 
 module.exports = router;
