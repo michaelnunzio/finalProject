@@ -47,12 +47,11 @@ password: {
     required: true
   },
 
-  yes: [
+  yes: [    
+  ],
     
-    ],
-    
-    no: [  
-    ]
+  no: [  
+  ]
 
 //add logo later on **ask vin**
 
