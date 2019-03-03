@@ -41,22 +41,69 @@ router.get("/allcands", function(req, res) {
       });
   });
 
-
+  // post route for saving button click's from jobcard 
   router.post("/allcandsy", function(req,res) {
     console.log('anything');
     console.log("this is our cand"+ req.body.candy)
     console.log("this is the job we are interested in" + req.body.jobcards._id)
     
-    userCand.fin
-    userCand.findByIdAndUpdate(
-     req.body.candy,
-     {$addToSet: {"yes": req.body.jobcards._id}},
-     //  {$addToSet: {"yes": {companyid: req.body.jobcards._id}}},
-    //  {safe: true, upsert: true, new : true},
-        function(err, model) {
-            console.log(err);
-        }
+    //if the positive button is clicked save the job id to YES key
+    if(req.body.button === 'positive'){
+      userCand.findByIdAndUpdate(
+       req.body.candy,
+       {$addToSet: {"yes": req.body.jobcards._id}},
+       //  {$addToSet: {"yes": {companyid: req.body.jobcards._id}}},
+      //  {safe: true, upsert: true, new : true},
+          function(err, model) {
+              console.log(err);
+          }
+      )
+    }
 
-    )
+    //else if the negative button is clicked save the job id to NO key
+    else{
+      userCand.findByIdAndUpdate(
+        req.body.candy,
+        {$addToSet: {"no": req.body.jobcards._id}},
+        //  {$addToSet: {"yes": {companyid: req.body.jobcards._id}}},
+       //  {safe: true, upsert: true, new : true},
+           function(err, model) {
+               console.log(err);
+           }
+       )
+    }
+  }); 
+
+  // post route for saving button click's from peopleCard 
+  router.post("/allemploy", function(req,res) {
+    console.log('anything');
+    console.log("this is our employer "+ req.body.employer)
+    console.log("this is the job we are interested in" + req.body.peoplecards._id)
+    
+    //if the positive button is clicked save the job id to YES key
+    if(req.body.button === 'positive'){
+      compUser.findByIdAndUpdate(
+       req.body.employer,
+       {$addToSet: {"yes": req.body.peoplecards._id}},
+       //  {$addToSet: {"yes": {companyid: req.body.jobcards._id}}},
+      //  {safe: true, upsert: true, new : true},
+          function(err, model) {
+              console.log(err);
+          }
+      )
+    }
+    
+    //else if the negative button is clicked save the job id to NO key
+    else{
+      compUser.findByIdAndUpdate(
+        req.body.employer,
+        {$addToSet: {"no": req.body.peoplecards._id}},
+        //  {$addToSet: {"yes": {companyid: req.body.jobcards._id}}},
+       //  {safe: true, upsert: true, new : true},
+           function(err, model) {
+               console.log(err);
+           }
+       )
+    }
   }); 
 module.exports = router;

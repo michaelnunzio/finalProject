@@ -16,12 +16,11 @@ export default class Button extends Component {
     }
   }
 
+  // setting the state with the logged in Candidate's ID
   componentWillMount(){
-
     axios.get('/auth/user').then((data)=>{
       this.setState({
-          candy: data.data.user._id
-          
+          candy: data.data.user._id          
       })
         // console.log('from state Candy Name: ', this.state.candy)
         console.log(this.state.candy)
@@ -32,7 +31,7 @@ export default class Button extends Component {
     requestAnimationFrame(animate);
   }
 
-  handleClick(event) {
+  handleClick = (event) => {
     if (this.props.animationInProgress === false) {
       this.props.toggleAnimationInProgress(true)
       let currentCard = document.getElementsByClassName('Card')[this.props.cards.length - 1]
@@ -53,28 +52,33 @@ export default class Button extends Component {
     }
   }
 
+  //Handing button clicks
   handleMouseDown = (event)=> {
-
+    
+    // if the positive button is clicked post the job is to YES key in the db
     if(this.props.posOrNeg === "positive") {
       console.log("this is true")
 
       axios.post('/allcandsy', {
       candy: this.state.candy, 
-      jobcards: this.props.cards[0]
-
+      jobcards: this.props.cards[0],
+      button: this.props.posOrNeg
       }).then((data)=>{
        console.log(data)
       })
     }
 
-
-    if(this.props.posOrNeg === "negative") {
+    // if the negative button is clicked post the job is to NO key in the db
+    else if(this.props.posOrNeg === "negative") {
       console.log("this is negative")
-
+      axios.post('/allcandsy', {
+        candy: this.state.candy, 
+        jobcards: this.props.cards[0],
+        button: this.props.posOrNeg  
+        }).then((data)=>{
+         console.log(data)
+        })
     }
-
-    
-
 
     this.setState({pressed: true})
   }
@@ -95,7 +99,7 @@ export default class Button extends Component {
       // <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind(this)} onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)} onMouseLeave={this.handleMouseUp.bind(this)} onTouchStart={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseUp.bind(this)} onTouchCancel={this.handleMouseUp.bind(this)} style={dynamicStyle}>
       //   <i className={"fa fa-" + this.props.heartOrTimes + " fa-5x"} />
       // </div>
-      <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind(this)} onMouseDown={this.handleMouseDown}  onTouchStart={this.handleMouseDown.bind(this)} style={dynamicStyle}>
+      <div className={"button " + this.props.posOrNeg} onClick={this.handleClick.bind} onMouseDown={this.handleMouseDown}  onTouchStart={this.handleMouseDown} style={dynamicStyle}>
         <i className={"fa fa-" + this.props.heartOrTimes + " fa-5x"} />
       </div>
     )

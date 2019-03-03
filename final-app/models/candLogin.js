@@ -78,10 +78,12 @@ yes: [
 
 ],
 
-no: [ {
-  type: String,
-  unique: true   
-  } ]
+no: [ 
+  // {
+  // type: String,
+  // unique: true   
+  // } 
+]
 
 
 });
