@@ -71,17 +71,16 @@ company:{
 },
 
 yes: [
-{
-companyid: {type:String}
+// {
+// companyid: {type:String}
 
-}
+// }
 
 ],
 
 no: [ {
   type: String,
-  unique: true 
-  
+  unique: true   
   } ]
 
 
