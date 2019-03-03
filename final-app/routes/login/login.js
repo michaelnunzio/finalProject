@@ -174,13 +174,18 @@ router.route("/register/employer")
   });
 
   /*********************************** login for candidate ****************************************/
-  router.post('/login/candidate',
-  passport.authenticate('candidate', {successRedirect:'/userProfile', failureRedirect:'/login/candidate', failureFlash:true}),
-  function(req, res) {
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
+  // router.post('/login/candidate',
+  // passport.authenticate('candidate', {successRedirect:'/userProfile', failureRedirect:'/login/candidate', failureFlash:true}),
+  // function(req, res) {
+  //   // If this function gets called, authentication was successful.
+  //   // `req.user` contains the authenticated user.
 
-    res.redirect('/register/candidate');
+  //   res.redirect('/register/candidate');
+  // });
+
+  router.post('/login/candidate', (req,res,next) => {
+
+    passport.authenticate('candidate', {successRedirect: '/userProfile',failureRedirect: '/login/candidate', failureFlash:true})(req, res, next)
   });
 
 

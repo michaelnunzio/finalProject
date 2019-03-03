@@ -41,7 +41,9 @@ export default class HomePage extends Component{
                         <ul>Swipe left or right, on the job you like!</ul> 
                         <ul style={otherBtn}>In order to get started, please login!</ul> 
                         
-                        <p><a className="btn btn1" href="/" role="button" style={otherBtn}>Sign Up</a></p>
+                        <p><a className="btn btn1" href="/register/employer" role="button" style={otherBtn}>Sign Up as Employer</a>
+                        <a className="btn btn1" href="/register/candidate" role="button" style={otherBtn}>Sign Up as Job Seeker</a></p>
+
                     </div>
                 </div>
             </React.Fragment>

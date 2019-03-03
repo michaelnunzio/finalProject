@@ -13,7 +13,7 @@ export default class Buttons extends Component {
   toggleAnimationInProgress(value) {
     this.setState({animationInProgress: value})
   }
-
+  
   render() {
     return <div className="Buttons">
       <Button posOrNeg="negative" heartOrTimes="times" cards={this.props.cards} shiftCard={this.props.shiftCard} toggleAnimationInProgress={this.toggleAnimationInProgress.bind(this)} animationInProgress={this.state.animationInProgress} />

@@ -3,7 +3,7 @@ import Buttons from './Buttons'
 import CardDeck from './CardDeck'
 import Title from "./Title"
 import axios from 'axios'
-import NavBar from "../navbar/navbar"
+import NavBar from "../nav/navBar"
 
 
 
@@ -71,7 +71,7 @@ export default class JobCard extends Component {
         <NavBar/>
       <div className="App">
         <CardDeck cards={this.state.cards} shiftCard={this.shiftCard.bind(this)} />
-        <Buttons cards={this.state.cards} shiftCard={this.shiftCard.bind(this)} />
+        {/* <Buttons cards={this.state.cards} shiftCard={this.shiftCard.bind(this)} /> */}
       </div>
       </div>
     )

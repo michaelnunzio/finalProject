@@ -75,6 +75,7 @@ class App extends Component {
             />
             <Route path="/userProfile"
                 render= {(props) => {
+                  console.log('props:'+props.location);
                   console.log('inside route tag for user: ',this.state.isLoggedIn)
                   return this.state.isLoggedIn === true
                   ? <Profile {...props} />
