@@ -57,8 +57,7 @@ class App extends Component {
             <Route exact path="/login/employer" component={EmployerLogin} />
             <Route exact path="/register/candidate" component={Register} />
             <Route exact path="/register/employer" component={EmployerRegister} />
-            <Route exact path ="/compHome" component= {compHome} />   
-            <Route exact path ="/userHome" component= {userHome} />   
+            
 
             <Route path="/userProfile/JobCard"
                 render= {(props) => {
