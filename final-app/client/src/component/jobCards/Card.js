@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import interact from 'interactjs'
 import TWEEN from '@tweenjs/tween.js'
+import Button from './Button';
 
 function animate(time) {
   requestAnimationFrame(animate);
@@ -69,48 +70,36 @@ export default class Card extends Component {
       {this.props.title}
       </div> */}
 
-{/* <div className ="cardy">
-<ul>
-  <li className ="cardy">
-    <strong></strong> {this.props.name}
-  </li>
-  <li className = "cardy">
-    <strong>Occupation:</strong> {this.props.title}
-  </li>
-  <li className = "cardy">
-    <strong>Technologies:</strong> {this.props.tech}
-  </li>
-  <li className = "cardy">
-    <strong>Current Company:</strong> {this.props.company}
-  </li>
+      {/* <div className ="cardy">
+      <ul>
+        <li className ="cardy">
+          <strong></strong> {this.props.name}
+        </li>
+        <li className = "cardy">
+          <strong>Occupation:</strong> {this.props.title}
+        </li>
+        <li className = "cardy">
+          <strong>Technologies:</strong> {this.props.tech}
+        </li>
+        <li className = "cardy">
+          <strong>Current Company:</strong> {this.props.company}
+        </li>
+      </ul>
+      </div> */}
 
-
-
-</ul>
-</div> */}
-
-<div className ="cardy">
-<ul>
-  <li className ="cardy">
-    <strong></strong> {this.props.name}
-  </li>
-  <li className = "cardy">
-    <strong>Description:</strong> {this.props.title}
-  </li>
-  <li className = "cardy">
-    <strong>Requirements</strong> {this.props.tech}
-  </li>
-  
-
-
-
-</ul>
-</div>
-
-
-
-
-    
+      <div className ="cardy">
+        <ul>
+          <li className ="cardy">
+            <strong></strong> {this.props.name}
+          </li>
+          <li className = "cardy">
+            <strong>Description:</strong> {this.props.title}
+          </li>
+          <li className = "cardy">
+            <strong>Requirements</strong> {this.props.tech}
+          </li>
+        </ul>
+      </div>
     </div>
   }
 }

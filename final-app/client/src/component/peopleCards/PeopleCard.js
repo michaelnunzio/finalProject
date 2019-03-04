@@ -5,7 +5,11 @@ import Buttons from './Buttons'
 import CardDeck from './CardDeck'
 import Title from "./Title"
 import axios from "axios"
+<<<<<<< HEAD
 import NavBar from '../nav/navBar'
+=======
+import NavBar from "../nav/navBar"
+>>>>>>> 785401b33cff065687a90641f3df884ea0006f1f
 
 const IMAGE_URLS = [{"name": "leigh", "title": "web developer", "tech": "HTML, JavaScript, CSS", "company": "Amazon" },{"name":"Vinit", "title": "full stack developer", "tech": "Java, JavaScript", "company": "google"},{"name": "mike", "title": "coder", "tech": "vue.js", "company": "netflix"},{"name": "Jimmy", "title": "good at things", "tech": "MERN", "company": "FaceBook"}]
 
