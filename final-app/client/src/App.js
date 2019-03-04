@@ -12,6 +12,7 @@ import CompProfile from './component/compProfile/compProfile';
 import axios from 'axios';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
+import ResultsForUser from "./component/resultsForUser/resultsForUser"
 
 
 class App extends Component {
@@ -54,6 +55,7 @@ class App extends Component {
             <Route exact path="/login/employer" component={EmployerLogin} />
             <Route exact path="/register/candidate" component={Register} />
             <Route exact path="/register/employer" component={EmployerRegister} />
+            <Route exact path = "/userProfile/results" component = {ResultsForUser}/>
             <Route path="/userProfile/JobCard"
                 render= {(props) => {
                   console.log('inside route tag for user: ',this.state.isLoggedIn)
