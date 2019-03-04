@@ -68,7 +68,29 @@ trim: true
 company:{
   type: Boolean,
   default: false
-}
+},
+
+yes: [
+// {
+// companyid: {type:String}
+
+// }
+
+],
+
+no: [ 
+  // {
+  // type: String,
+  // unique: true   
+  // } 
+], 
+
+match: [
+
+
+  
+]
+
 
 });
 
