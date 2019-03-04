@@ -1,16 +1,8 @@
 var userCand = require('../../models/candLogin');
+// var compUser = require('../../models/compLogin')
 var express = require("express");
 var path = require("path");
 var router = express.Router();
-
-
-// app.get("/allcands", function(req, res) {
-//   compUser.find({"first": "cake"}, function(error, data) {
-//     console.log(data);
-//     res.json(data)
-//   });
-// });
-
 var compUser = require("../../models/compLogin")
 
 
@@ -49,8 +41,9 @@ router.get("/allcands", function(req, res) {
 
     userCand.findByIdAndUpdate(req.session.passport.user.id, 
       {$set:{email: req.body.Email, title: req.body.Title, 
-      technologies: req.body.Technologies, github: req.body.Github, 
-      project: req.body.Project
+        description: req.body.Description, technologies: req.body.Technologies, 
+        github: req.body.Github
+        
     }},function (err,user){
       if(err){
           res.redirect("/")
@@ -61,11 +54,23 @@ router.get("/allcands", function(req, res) {
     }
       )});
 
+      router.post('/allemploy', function(req, res){
+        console.log(req.session)
+        console.log('pass employ: ++ ', req.session.passport)
+        // console.log(req.session.passport.email)
+    
+        compUser.findByIdAndUpdate(req.session.passport.user.id, 
+          {$set:{email: req.body.Email, company: req.body.Company, 
+            industry: req.body.Industry
+            
+        }},function (err,user){
+          if(err){
+              res.redirect("/")
+          } else {
+          user.save()
+          res.redirect('/editCprofile')
+          }
+        }
+          )});
 
-      // var email = req.body.Email;
-      // var title = req.body.Title;
-      // var description = req.body.Description;
-      // var technologies = req.body.Technologies;
-      // var github = req.body.Github;
-      // var project = req.body.Project; 
 module.exports = router;

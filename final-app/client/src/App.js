@@ -13,6 +13,7 @@ import axios from 'axios';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
 import CandPro from './component/editPro/candPro';
+import ClientPro from './component/editPro/clientPro';
 
 
 class App extends Component {
@@ -102,6 +103,16 @@ class App extends Component {
                   return this.state.isLoggedIn === true
                   ? <CandPro {...props} />
                   : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
+                }
+                }
+              />
+
+            <Route path='/editCProfile'
+                render= {(props) => {
+                  console.log('inside route tag for comp: ',this.state.isLoggedIn)
+                  return this.state.isLoggedIn === true
+                  ? <ClientPro {...props} />
+                  : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />
                 }
                 }
               />

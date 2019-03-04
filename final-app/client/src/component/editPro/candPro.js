@@ -30,7 +30,7 @@ export default class candPro extends Component{
           })
             // console.log('from state Candy Name22: ', this.state.name)
             console.log('email edit page: ', this.state.email)
-            console.log(this.state.title)
+            console.log(this.state.desc)
         })
       }
 
@@ -62,22 +62,22 @@ export default class candPro extends Component{
             <form className="form-signin" method="post" action="/allcands">
             
                 <label htmlFor="inputEmail" className="sr-only">{this.state.email}</label>
-                <input readOnly={this.state.readOnly} type="email" name="Email" id="inputEmail" className="form-control" placeholder={this.state.email} />
+                <input readOnly={this.state.readOnly} type="email" name="Email" id="inputEmail" className="form-control" defaultValue={this.state.email} />
                
                 <label htmlFor="inputTitle" className="sr-only">{this.state.title}</label>
-                <input readOnly={this.state.readOnly} type="text" name="Title" id="inputTitle" className="form-control" placeholder={this.state.title} />
+                <input readOnly={this.state.readOnly} type="text" name="Title" id="inputTitle" className="form-control" defaultValue={this.state.title} />
                 
                 <label htmlFor="inputDescription" className="sr-only">{this.state.desc} </label>
-                <input readOnly={this.state.readOnly} type="text" name="Description" id="inputDescription" className="form-control" placeholder={this.state.desc} />
+                <input readOnly={this.state.readOnly} type="text" name="Description" id="inputDescription" className="form-control" defaultValue={this.state.desc} />
                 
                 <label htmlFor="inputTechnologies" className="sr-only">{this.state.tech}</label>
-                <input readOnly={this.state.readOnly} type="text" name="Technologies" id="inputTechnologies" className="form-control" placeholder={this.state.tech} />
+                <input readOnly={this.state.readOnly} type="text" name="Technologies" id="inputTechnologies" className="form-control" defaultValue={this.state.tech} />
                 
                 <label htmlFor="inputGithub" className="sr-only">{this.state.gitPort}</label>
-                <input readOnly={this.state.readOnly} type="text" name="Github" id="inputGithub" className="form-control" placeholder={this.state.gitPort} autofocus/>
+                <input readOnly={this.state.readOnly} type="text" name="Github" id="inputGithub" className="form-control" defaultValue={this.state.gitPort} autofocus/>
                
                 <label htmlFor="inputProject" className="sr-only">Last 2 Employers or Favorite Projects</label>
-                <input readOnly={this.state.readOnly} type="text" name="Project" id="inputProject" className="form-control" placeholder="Last 2 Employers or Projects" autofocus/>
+                <input readOnly={this.state.readOnly} type="text" name="Project" id="inputProject" className="form-control" defaultValue="Last 2 Employers or Projects" autofocus/>
                
                 <button className="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 <p className="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
