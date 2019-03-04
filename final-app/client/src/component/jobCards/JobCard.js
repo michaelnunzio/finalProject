@@ -3,11 +3,7 @@ import Buttons from './Buttons'
 import CardDeck from './CardDeck'
 import Title from "./Title"
 import axios from 'axios'
-<<<<<<< HEAD
-import NavBar from '../nav/navBar'
-=======
 import NavBar from "../nav/navBar"
->>>>>>> 785401b33cff065687a90641f3df884ea0006f1f
 
 
 

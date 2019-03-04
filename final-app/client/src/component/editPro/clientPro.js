@@ -54,7 +54,10 @@ export default class candPro extends Component{
          <div className="container"> 
                 <div className='row'>
                      <h2 className='col l4 offset-l4 editProH'>Company Info</h2> 
-                     <button className=" col l2 btn btn-lg btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT</button>
+                </div>
+
+                <div className='row'>
+                <button className="col l6 offset-l3 btn btn-sm btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT</button>
                 </div>
 
 
