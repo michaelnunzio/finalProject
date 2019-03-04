@@ -41,6 +41,20 @@ router.get("/employ/:id", function(req, res) {
     });
 });
 
+router.get("/cand/:id", function(req, res) {
+  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+  userCand.findOne({ _id: req.params.id })
+    // ..and populate all of the notes associated with it
+    .then(function(comp) {
+      // If we were able to successfully find an Article with the given id, send it back to the client
+      res.json(comp);
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
 
 router.get("/allcands", function(req, res) {
     // Grab every document in the Articles collection
