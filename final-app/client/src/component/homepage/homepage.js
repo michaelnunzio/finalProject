@@ -27,7 +27,7 @@ function HomePage(){
                 </div>
             </div>
             <div className='row word'>
-                <div className='col l3'>
+                <div className='col l6 offset-l3'>
                    <div className='word2'><i>Swipe</i></div> 
                 </div>
             </div>

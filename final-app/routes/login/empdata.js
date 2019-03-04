@@ -37,12 +37,13 @@ router.get("/allcands", function(req, res) {
   router.post('/allcands', function(req, res){
     console.log(req.session)
     console.log('pass: ++ ', req.session.passport)
-    // console.log(req.session.passport.email)
+    console.log('body: ', req.body)
+    // console.log('descc: ', req.session.passport.description)
 
     userCand.findByIdAndUpdate(req.session.passport.user.id, 
-      {$set:{email: req.body.Email, title: req.body.Title, 
-        description: req.body.Description, technologies: req.body.Technologies, 
-        github: req.body.Github
+      {$set:{ email: req.body.Email, title: req.body.Title, 
+      desc: req.body.Description, tech: req.body.Technologies, 
+      git: req.body.Github, project: req.body.Project
         
     }},function (err,user){
       if(err){
@@ -57,13 +58,16 @@ router.get("/allcands", function(req, res) {
       router.post('/allemploy', function(req, res){
         console.log(req.session)
         console.log('pass employ: ++ ', req.session.passport)
+        console.log('body: ', req.body)
         // console.log(req.session.passport.email)
     
         compUser.findByIdAndUpdate(req.session.passport.user.id, 
           {$set:{email: req.body.Email, company: req.body.Company, 
             industry: req.body.Industry
-            
         }},function (err,user){
+          // console.log('----------------')
+          // console.log('updated:')
+          // console.log('----------------')
           if(err){
               res.redirect("/")
           } else {
