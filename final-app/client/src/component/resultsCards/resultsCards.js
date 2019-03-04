@@ -10,21 +10,27 @@ function ResultsCard(props) {
       <div className="content">
         <ul>
           <li>
-            <strong>Name:</strong> {props.name}
+            <strong></strong> {props.company}
           </li>
           <li>
-            <strong>Occupation:</strong> {props.occupation}
+            <strong>Contact:</strong> {props.first} {props.last}
           </li>
           <li>
-            <strong>Location:</strong> {props.location}
+            <strong>Email:</strong> {props.email}
+          </li>
+          <li>
+            <strong>Location:</strong> New York
+          </li>
+          <li>
+            <strong>Industry:</strong> {props.industry}
           </li>
         </ul>
       </div>
-      <span onClick={() => props.removeFriend(props.id)} className="remove">
-        𝘅
+      <span>
       </span>
     </div>
   );
 }
 
 export default ResultsCard;
+
