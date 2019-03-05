@@ -10,7 +10,11 @@ function login(){
         <NavBar/>
         <div className="container">
             <form className="form-signin" method="post" action="/login/candidate">
-                <h1 className="h3 mb-3 font-weight-normal">Candidate- Please sign in</h1>
+            
+            <div className='col l8 offset-l2'>
+                <h1 className="h3">Welcome Candidate! Please Sign In</h1>
+            </div>
+
                 <label htmlFor="inputEmail" className="sr-only">Email address</label>
                 <input type="email" name="username" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus/>
                 <label htmlFor="inputPassword" className="sr-only">Password</label>

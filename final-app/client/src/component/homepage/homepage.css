@@ -1,5 +1,6 @@
 
 
+
 .jHin{
     font-family: 'Chonburi', cursive;
     font-weight: bold;
@@ -24,10 +25,14 @@ h1{
     left: 0;
     width: 100%;*/
     /* height: 590px;  */
-    background-image: url("./pictures/picFive.png");
+    /* background-image: url("./pictures/picFive.png"); */
+    background-image: url("./pictures/picMill2.jpg");
 
-    max-width: 100%;
+    height: 100%;
+    padding-bottom: 240px;
+    /* max-width: 100%; */
     z-index: 0;
+    margin-bottom:-20;
 }
 
 /* .disCont{
@@ -73,6 +78,8 @@ ul{
     /*animation*/
     animation-name: example;
     animation: example 5s infinite;
+    /* fixes the bottom issue */
+    margin-bottom: -1px;
 }
   
   /* Standard syntax */

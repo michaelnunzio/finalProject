@@ -33,7 +33,7 @@ export default class HomePage extends Component{
             <React.Fragment>
                 <NavBar/>
                 {/* <img className='imgUno' src={Image}/> */}
-                <div className="jumbotron center homeJtron">
+                <div className="center homeJtron">
                     <div className="container-fluid">
                     {/* <div class="row"> */}
                     {/* <div className='col l6 offset-l6 disCont'> */}
