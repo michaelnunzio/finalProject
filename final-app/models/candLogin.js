@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
+if(process.env.MONGODB_URI){
+  mongoose.connect(process.env.MONGODB_URI) 
+} else{
+  mongoose.connect("mongodb://localhost/jobhuntr");
+}
+
 // mongoose.connect('mongodb://localhost/jobhuntr');
 
 // User Schema

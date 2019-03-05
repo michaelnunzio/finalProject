@@ -13,7 +13,7 @@ var mongo = require("mongod");
 const mongoose = require("mongoose");
 const users = require("./routes/login/login")
 // mongoose.connect("mongodb://localhost/jobhuntr");
-var db = mongoose.connect;
+// var db = mongoose.connect;
 const app = express();
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes/login/empdata")
@@ -82,11 +82,11 @@ app.use(expressValidator({
 // })
 
 // Connect to the Mongo 
-if(process.env.MONGODB_URI){
-  mongoose.connect(process.env.MONGODB_URI) 
-} else{
-  mongoose.connect("mongodb://localhost/jobhuntr");
-}
+// if(process.env.MONGODB_URI){
+//   mongoose.connect(process.env.MONGODB_URI) 
+// } else{
+//   mongoose.connect("mongodb://localhost/jobhuntr");
+// }
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jobhuntr");
 
