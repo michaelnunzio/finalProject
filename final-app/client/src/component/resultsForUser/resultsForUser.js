@@ -76,13 +76,22 @@ export default class ResultsForUser extends Component{
 
         render(){
         return(
+      <React.Fragment>
 
-            <div>
-         <NavBar candidate={false}/>
-         <div>
-            Wow! Check your matches!
-        </div>
+<div className='container-fluid'>
 
+<div className='row newNn'>
+  <NavBar candidate={false}/>
+
+</div>
+      <br></br>
+
+    <div className='row'>
+        <div className='col l4 offset-l4 col m8 offset-m2 col s10 offset-s1 checkOut'>Check Out Your Matches *this is the candidate*!</div>
+    </div>
+
+    <div className='row'>
+    <div className='col l6 offset-l3 ol m8 offset-m2 col s10 offset-s1'>
          {this.state.allMatches.map(comp=> (
           <ResultsCard
         
@@ -94,12 +103,12 @@ export default class ResultsForUser extends Component{
             
           />
         ))}
+    </div>
 
 
-
-
+        </div>
           </div>
-        
+          </React.Fragment>
         
                 
 

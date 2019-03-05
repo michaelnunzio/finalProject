@@ -8,9 +8,9 @@ function ResultsCard(props) {
         <img alt={props.name} src={props.image} />
       </div>
       <div className="content">
-        <ul>
+        <ul id='content'>
           <li>
-            <strong></strong> {props.company}
+            <strong>Company:</strong> {props.company}
           </li>
           <li>
             <strong>Contact:</strong> {props.first} {props.last}
@@ -23,6 +23,10 @@ function ResultsCard(props) {
           </li>
           <li>
             <strong>Industry:</strong> {props.industry}
+          </li>
+        {/* add images- add functionality at later date */}
+          <li>
+          <i class="material-icons small" id='mat-icon'>import_export email settings</i>
           </li>
         </ul>
       </div>

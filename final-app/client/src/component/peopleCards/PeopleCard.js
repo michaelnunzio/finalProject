@@ -42,6 +42,7 @@ export default class PeopleCard extends Component {
     return (
       <div>
         <NavBar company={true}/>
+
       <div className="App">
         <CardDeck cards={this.state.cards} shiftCard={this.shiftCard.bind(this)} />
         <Buttons cards={this.state.cards} shiftCard={this.shiftCard.bind(this)} />
