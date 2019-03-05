@@ -4,7 +4,7 @@ import axios from 'axios';
 import EditButton from 'react-edit-button'
 
 
-export default class candPro extends Component{
+export default class clientPro extends Component{
 
     state={
         email: '',
@@ -54,7 +54,7 @@ export default class candPro extends Component{
          <div className="container"> 
                 <div className='row'>
                      <h2 className='col l4 offset-l4 editProCan'>Company Info</h2> 
-                     <button className="btn btn-lg btn-primary btn-block" type="edit" onClick={this.readFalse}>EDIT</button>
+                     <button className="btn btn-lg btn-primary btn-block" className="right-align" type="edit" onClick={this.readFalse}>EDIT</button>
                 </div>
 
 
