@@ -1,28 +1,48 @@
 
 
+
 .jHin{
     font-family: 'Chonburi', cursive;
     font-weight: bold;
-    color: rgb(32, 32, 32);
+    color: white;
+    text-shadow: 4px 4px black;
+    text-align: center;
+    font-size: 90px;
+}
+
+.imgUno{
+    max-width: 100%;
 }
 
 h1{
-    text-align: center;
+    /* text-align: center; */
 }
 
 .homeJtron{
-    padding-top: 100px;
-    height: 1500px;
-    background-image: url('./pictures/picOne.jpg');
+    padding-top: 140px;
     /* position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%; */
-    
-    /* background-image: url("pictures/skyex.jpg"); */
+    width: 100%;*/
+    /* height: 590px;  */
+    /* background-image: url("./pictures/picFive.png"); */
+    background-image: url("./pictures/picMill2.jpg");
+
+    height: 100%;
+    padding-bottom: 240px;
+    /* max-width: 100%; */
+    z-index: 0;
+    margin-bottom:-20;
 }
 
+/* .disCont{
+    margin-top: -140px;
+    margin-left: 40px;
+    color: white;
+    text-shadow: 3px 3px black;
+    z-index: 1;
+
+} */
 .btn1{
     /* display: flex; */
     align-items: center;
@@ -32,17 +52,56 @@ h1{
     height: 40px;
     padding-top:2px;
 
-    background-image: linear-gradient(to right, green , rgb(0, 180, 0), rgb(0, 224, 0));
+    background-image: linear-gradient(to right, teal , rgb(0, 190, 190), rgb(192, 207, 207));
     text-align: center;
     font-weight: bold;
 }
 
 .btn1:hover{
     /* background-image: linear-gradient(to right, green , rgb(0, 180, 0), rgb(0, 224, 0)); */
-    background-image: linear-gradient(to right, rgb(0, 224, 0), green, rgb(0, 180, 0));
+    background-image: linear-gradient(to right, rgb(192, 207, 207), rgb(0, 190, 190), teal);
     color: white;
 }
 
-li{
-    font-size: 16px;
+ul{
+    font-size: 22px;
+    color: white;
+    text-shadow: 2px 2px black;
+    font-weight: bold;
 }
+
+.word{
+    background-image: linear-gradient(to right, rgb(192, 207, 207), rgb(0, 190, 190), teal);
+    height: 100px;
+    margin-top: -35px;
+    text-align: center;
+    /*animation*/
+    animation-name: example;
+    animation: example 5s infinite;
+    /* fixes the bottom issue */
+    margin-bottom: -1px;
+}
+  
+  /* Standard syntax */
+  @keyframes example {
+    0% {background-image: linear-gradient(to right, rgb(192, 207, 207), rgb(0, 190, 190), teal)}
+    10% {background-image: linear-gradient(to right, rgb(0, 190, 190), rgb(192, 207, 207), teal)}
+    20% {background-image: linear-gradient(to right, rgb(0, 190, 190), teal, rgb(192, 207, 207))}
+    30% {background-image: linear-gradient(to right, rgb(192, 207, 207), rgb(0, 190, 190), teal)}
+    40% {background-image: linear-gradient(to right, rgb(0, 190, 190), rgb(192, 207, 207), teal)}
+    50% {background-image: linear-gradient(to right, rgb(0, 190, 190), teal, rgb(192, 207, 207))}
+    60% {background-image: linear-gradient(to right, rgb(192, 207, 207), rgb(0, 190, 190), teal)}
+    70% {background-image: linear-gradient(to right, rgb(0, 190, 190), rgb(192, 207, 207), teal)}
+    80% {background-image: linear-gradient(to right, rgb(0, 190, 190), teal, rgb(192, 207, 207))}
+  }
+
+  .word2{
+    text-align: center;
+    font-family: 'Chonburi', cursive;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px black;
+    font-size: 60px;
+}
+  
+

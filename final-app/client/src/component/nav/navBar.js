@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./navBar.css";
-import logo from './images/jobHlogo.png'; // Tell Webpack this JS file uses this image
+import logo from './images/LogoMakr_4T9LLy.png'; // Tell Webpack this JS file uses this image
 import axios from 'axios';
 
 
@@ -53,9 +53,9 @@ export default class NavBar extends Component{
                         <a href="/" className="brand-logo"><img className="responsive-img jHlogo" alt='logo' src={logo} /></a>
                         <ul className="right hide-on-med-and-down">
                             <li><a href="/"><i className="material-icons left">home</i>Home</a></li>                    
-                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown2" style={otherBtn}><i className="material-icons left">assignment_ind</i>Login<i className="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a className="dropdown-trigger" data-target="dropdown2" style={otherBtn}><i className="material-icons left">assignment_ind</i>Login<i className="material-icons right">arrow_drop_down</i></a></li>
                             <li><a href="/" id="logout" onClick={handleLogout} style={styleLogout}><i className="material-icons left">lock</i>Logout</a></li>
-                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown1" style={otherBtn}><i className="material-icons left">assignment</i>Register<i className="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a className="dropdown-trigger" data-target="dropdown1" style={otherBtn}><i className="material-icons left">assignment</i>Register<i className="material-icons right">arrow_drop_down</i></a></li>
 
                         </ul>
                         </div>

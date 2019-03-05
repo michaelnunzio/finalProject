@@ -11,6 +11,8 @@ import CompProfile from './component/compProfile/compProfile';
 import axios from 'axios';
 import JobCard from "./component/jobCards/JobCard"
 import PeopleCard from "./component/peopleCards/PeopleCard"
+import CandPro from './component/editPro/candPro';
+import ClientPro from './component/editPro/clientPro';
 import ResultsForUser from "./component/resultsForUser/resultsForUser"
 import ResultsforEmploy from "./component/resultsForEmploy/resultsForEmploy"
 
@@ -96,6 +98,27 @@ class App extends Component {
                 }
                 }
             />
+            <Route path='/editProfile'
+                render= {(props) => {
+                  console.log('inside route tag for comp: ',this.state.isLoggedIn)
+                  return this.state.isLoggedIn === true
+                  ? <CandPro {...props} />
+                  : <Redirect to={{pathname: "/login/candidate", state: {from: props.location}}} />
+                }
+                }
+              />
+
+            <Route path='/editCProfile'
+                render= {(props) => {
+                  console.log('inside route tag for comp: ',this.state.isLoggedIn)
+                  return this.state.isLoggedIn === true
+                  ? <ClientPro {...props} />
+                  : <Redirect to={{pathname: "/login/employer", state: {from: props.location}}} />
+                }
+                }
+              />
+           
+            {/* <Route exact path="/compProfile" component={CompProfile} /> */}
           </Switch>
         </div>
       </Router>

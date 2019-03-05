@@ -1,0 +1,20 @@
+
+.sidenav{
+    background-color: rgb(243, 243, 243);
+    margin-top:65px;
+  height: 340px;
+  border-bottom: solid 3px teal;
+  border-right: solid 3px teal;
+  text-align: center;
+  text-shadow: 1px 1px white;
+
+  }
+
+  .sideNav:hover{
+    color: teal;
+    text-shadow: 1px 1px teal;
+  }
+
+.swiperr{
+  color: yellow;
+}
