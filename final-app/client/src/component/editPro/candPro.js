@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import NavBar from '../nav/navBar'
 import axios from 'axios';
-import EditButton from 'react-edit-button'
-
+import './editPro.css'
 
 export default class candPro extends Component{
 
@@ -57,15 +56,12 @@ export default class candPro extends Component{
         <br></br>
         <br></br>
          <div className="container"> 
-            <div className='row'>
-                <h2 className='col l4 editProCan' class="left-align">Personal Info</h2> 
-        </div>
-
-                <p class="right-align">
-                        <button className="btn btn-lg btn-primary btn-block"  type="edit" onClick={this.readFalse}>EDIT</button>
-                </p>  
-
-
+                <div className='row'>
+                     <h2 className='col l6 offset-l3 editProH'>Personal Info</h2> 
+                </div>
+                <div className='row'>
+                <button className="col l6 offset-l3 btn btn-sm btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT</button>
+                </div>
             <form className="form-signin" method="post" action="/allcands">
             
                 <label htmlFor="inputEmail" className="sr-only">{this.state.email}</label> Email:

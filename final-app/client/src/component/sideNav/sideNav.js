@@ -7,7 +7,7 @@ function SideNav() {
   <React.Fragment>
   <ul id="slide-out" className="sidenav sidenav-fixed">
   <li><a href="/userProfile/JobCard">Swipe!</a></li>
-  <li><a href="#!">Matches</a></li>
+  <li><a href="/userProfile/results">Matches</a></li>
   <li><a href="/editProfile">Edit Profile</a></li>
 
   </ul>

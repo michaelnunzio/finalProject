@@ -19,8 +19,6 @@ const PORT = process.env.PORT || 3001;
 const routes = require("./routes/login/empdata")
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Define middleware here
@@ -85,13 +83,6 @@ app.use(expressValidator({
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jobhuntr");
-
-
-
-
-
-
-
 
 // Start the API server
 app.listen(PORT, function() {
