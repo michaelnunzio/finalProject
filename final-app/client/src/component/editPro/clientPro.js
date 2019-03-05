@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import NavBar from '../nav/navBar'
 import axios from 'axios';
-import EditButton from 'react-edit-button'
 
 
 export default class candPro extends Component{
@@ -48,7 +47,7 @@ export default class candPro extends Component{
     render(){
         return(
         <React.Fragment>
-            <NavBar/>
+            <NavBar company={true}/>
 
 
          <div className="container"> 
@@ -61,7 +60,7 @@ export default class candPro extends Component{
                 </div>
 
 
-                <form className="form-signin" method="post" action="/allemploy">
+                <form className="form-signin" method="post" action="/editEmploy">
                         
                         
                         <label htmlFor="inputEmail" className="sr-only">Email address</label>

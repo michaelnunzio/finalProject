@@ -78,7 +78,7 @@ export default class ResultsForUser extends Component{
         return(
 
             <div>
-         <NavBar/>
+         <NavBar company={true}/>
          <div>
             Wow! Check your matches!
         </div>
