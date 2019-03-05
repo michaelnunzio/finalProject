@@ -18,8 +18,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes/login/empdata")
 
-
-
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'build')));
 
@@ -71,7 +69,8 @@ app.use(expressValidator({
   
   // Add routes, both API and view
   app.use(users);
-  app.use(routes)
+  app.use(routes);
+  
 
 //Global Variables
 // app.use(function(req,res,next){

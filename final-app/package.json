@@ -50,6 +50,7 @@
     "passport-local": "^1.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
+    "react-edit-button": "^1.0.2",
     "react-scripts": "^2.1.5",
     "semver": "^5.6.0",
     "serve-favicon": "^2.5.0",

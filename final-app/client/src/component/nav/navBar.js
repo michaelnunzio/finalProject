@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./navBar.css";
-import logo from './images/jobHlogo.png'; // Tell Webpack this JS file uses this image
+import logo from './images/LogoMakr_4T9LLy.png'; // Tell Webpack this JS file uses this image
 import axios from 'axios';
 
 
