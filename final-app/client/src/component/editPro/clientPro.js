@@ -49,7 +49,6 @@ export default class candPro extends Component{
         <React.Fragment>
             <NavBar company={true}/>
 
-
          <div className="container"> 
                 <div className='row'>
                      <h2 className='col l4 offset-l4 editProH'>Company Info</h2> 

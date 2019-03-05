@@ -82,6 +82,7 @@ export default class ResultsForUser extends Component{
 
 <div className='row newNn'>
   <NavBar candidate={false}/>
+
 </div>
       <br></br>
 

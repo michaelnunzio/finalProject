@@ -78,6 +78,7 @@ export default class ResultsForUser extends Component{
 
     <div className='row'>
       <NavBar company= {true}/>
+
     </div>
 
           <br></br>
@@ -90,11 +91,11 @@ export default class ResultsForUser extends Component{
         {/* <div className='col l6 offset-l3'> */}
          {this.state.allMatches.map(comp=> (
           <ResultsCard
-            company={comp.company}
+            // company={comp.company}
             email={comp.email}
             first={comp.first}
             last={comp.last}
-            industry={comp.industry}
+            // industry={comp.industry}
           />
         ))}
         {/* </div> */}

@@ -24,6 +24,7 @@ export default class homePage extends Component{
         return(
             <React.Fragment>
                 <NavBar candidate={this.state.candidate} />
+
                 <div className="cJtron center welcomeN">
                     <div className="container">
                         <h1 className="display-3">Welcome, {this.state.candy}</h1>
