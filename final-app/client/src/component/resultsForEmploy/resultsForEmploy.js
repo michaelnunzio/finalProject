@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from '../nav/navBar';
 import ResultsCard from "../resultsCardsEmploy/resultsCards";
-// import "./results.css"
+
 
 export default class ResultsForUser extends Component{
     state={
@@ -32,11 +32,7 @@ export default class ResultsForUser extends Component{
             }).catch((error) => {
                 console.error(error)
             })
-            
-            
-            
-            
-            )
+        )
 
             // axios.get("/employ/" + this.state.matchArray[0])
             // .then((response) => {
@@ -44,9 +40,6 @@ export default class ResultsForUser extends Component{
             // }).catch((error) => {
             //     console.error(error);
             // });
-
-
-
         })
 
       }
@@ -76,34 +69,39 @@ export default class ResultsForUser extends Component{
 
         render(){
         return(
+          
 
-            <div>
-         <NavBar/>
-         <div>
-            Wow! Check your matches!
+    <React.Fragment>
+
+
+      <div className='container-fluid'>
+
+    <div className='row'>
+      <NavBar/>
+    </div>
+
+          <br></br>
+
+        <div className='row'>
+            <div className='col l4 offset-l4 col m6 offset-m3 col s8 offset-s2 checkOut'>Check Out Your Matches! *this is the employer*</div>
         </div>
 
+        <div className='row'>
+        {/* <div className='col l6 offset-l3'> */}
          {this.state.allMatches.map(comp=> (
           <ResultsCard
-        
             company={comp.company}
             email={comp.email}
             first={comp.first}
             last={comp.last}
             industry={comp.industry}
-            
           />
         ))}
+        {/* </div> */}
+        </div>
 
-
-
-
-          </div>
-        
-        
-                
-
-        
-        )
-        }
+      </div>
+    </React.Fragment>   
+          
+    )}
 }
