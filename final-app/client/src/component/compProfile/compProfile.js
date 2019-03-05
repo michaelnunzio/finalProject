@@ -13,6 +13,7 @@ export default class companyHomePage extends Component{
     state={
         user:''
     }
+    
     componentWillMount(){
         axios.get('/auth/user').then((data)=>{
           this.setState({
