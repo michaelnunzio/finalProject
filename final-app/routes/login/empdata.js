@@ -83,7 +83,7 @@ router.get("/allcands", function(req, res) {
     }
       )});
 
-      router.post('/allemploy', function(req, res){
+      router.post('/editEmploy', function(req, res){
         console.log(req.session)
         console.log('pass employ: ++ ', req.session.passport)
         console.log('body: ', req.body)

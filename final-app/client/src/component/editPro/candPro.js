@@ -50,7 +50,7 @@ export default class candPro extends Component{
     render(){
         return(
         <React.Fragment>
-            <NavBar/>
+            <NavBar candidate={false}/>
 
 
          <div className="container"> 

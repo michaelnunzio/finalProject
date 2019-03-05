@@ -6,13 +6,15 @@ import SideNav from '../sideNav/sideNav'
 
 export default class homePage extends Component{
     state={
-        candy:''
+        candy:'',
+        candidate: false
     }
     componentWillMount(){
 
         axios.get('/auth/user').then((data)=>{
           this.setState({
-              candy: data.data.user.first + ' ' + data.data.user.last
+              candy: data.data.user.first + ' ' + data.data.user.last,
+            //   employer: data.data.user.company
           })
             console.log('from state Candy Name: ', this.state.candy)
         })
@@ -21,7 +23,7 @@ export default class homePage extends Component{
         render(){
         return(
             <React.Fragment>
-                <NavBar />
+                <NavBar candidate={this.state.candidate}/>
                 <div className="jumbotron center welcomeN">
                     <div className="container">
                         <h1 className="display-3">Welcome, {this.state.candy}</h1>
