@@ -81,8 +81,14 @@ app.use(expressValidator({
 //     next();
 // })
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jobhuntr");
+// Connect to the Mongo 
+if(process.env.MONGODB_URI){
+  mongoose.connect(process.env.MONGODB_URI) 
+} else{
+  mongoose.connect("mongodb://localhost/jobhuntr");
+}
+
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jobhuntr");
 
 // Start the API server
 app.listen(PORT, function() {
