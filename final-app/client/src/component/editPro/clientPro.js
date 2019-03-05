@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import NavBar from '../nav/navBar'
 import axios from 'axios';
-import EditButton from 'react-edit-button'
 
 
 export default class candPro extends Component{
@@ -48,7 +47,7 @@ export default class candPro extends Component{
     render(){
         return(
         <React.Fragment>
-            <NavBar/>
+            <NavBar company={true}/>
 
 
          <div className="container"> 

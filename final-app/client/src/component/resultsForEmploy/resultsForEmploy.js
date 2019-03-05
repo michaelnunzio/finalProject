@@ -77,7 +77,7 @@ export default class ResultsForUser extends Component{
       <div className='container-fluid'>
 
     <div className='row'>
-      <NavBar/>
+      <NavBar company= {true}/>
     </div>
 
           <br></br>

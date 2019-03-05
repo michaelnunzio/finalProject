@@ -81,7 +81,7 @@ export default class ResultsForUser extends Component{
 <div className='container-fluid'>
 
 <div className='row newNn'>
-  <NavBar/>
+  <NavBar candidate={false}/>
 </div>
       <br></br>
 

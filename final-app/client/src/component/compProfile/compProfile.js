@@ -26,7 +26,7 @@ export default class companyHomePage extends Component{
             console.log(props)
         return(
             <React.Fragment>
-           <NavBar/>
+           <NavBar company={this.state.user}/>
           
             <div className="cJtron center  welcomeN">
                 <div className="container">
