@@ -19,21 +19,77 @@ export default class NavBar extends Component{
         super();
 
         this.state = {
-            showMenu: false
+            showMenu: false,
+            comp: false,
+            compProfile: false,
+            userProfile: false
         };
     }
 
+    // dashboard = () => {
+    //     if(this.state.userProfile){
+    //         console.log('returning userProfile route')
+    //         return(<li><a href='/userProfile' style={styleLogout}><i className="material-icons left">home</i>Dashboard</a></li>);
+    //     }else if(this.state.compProfile){
+    //         console.log('returning compProfile route')
+    //         return(<li><a href='/comProfile' style={styleLogout}><i className="material-icons left">home</i>Dashboard</a></li>);
+    //     }else{
+    //         return(<li><a href='/' style={styleLogout}><i className="material-icons left">home</i>Dashboard</a></li>);
+    //     }
+    // }
+
     componentWillMount(){
         axios.get('/auth/user').then((data)=>{
-            this.setState({showMenu: data.data.auth})
+            // console.log('nav component will mount: ', data.data.user);
+            
+            this.setState({
+                showMenu: data.data.auth,
+            })
             console.log('nav button status: '+this.state.showMenu);
+            if(this.props.company){
+                console.log('company is logged in');
+                this.setState({
+                    compProfile: true
+                })
+            }else if(!this.props.candidate){
+                console.log('candidate is logged in');
+                this.setState({
+                    userProfile: true
+                })
+            }else{
+                console.log('no one else logged in');
+                this.setState({
+                    userProfile: false,
+                    compProfile: false
+                })
+            }
+
         })
     }
+
+    // componentDidMount(){
+    //     console.log('nav button status inside didmount: ',this.state.showMenu)
+    //     if(this.state.showMenu){
+    //         axios.get('auth/user').then((data) => {
+    //             console.log('nav component will mount: ', data.data.user.company);
+    //         })
+    //     }
+    // }
 
     render(){
 
         const styleLogout = this.state.showMenu ? {} : {display: 'none'};
         const otherBtn = this.state.showMenu ? {display: 'none'} : {};
+        var dashboard;
+        if(this.state.userProfile){
+            console.log('returning userProfile route')
+            dashboard = <li><a href='/userProfile' style={styleLogout}><i className="material-icons left">home</i>Dashboard</a></li>;
+        }else if(this.state.compProfile){
+            console.log('returning compProfile route')
+            dashboard = <li><a href='/compProfile' style={styleLogout}><i className="material-icons left">home</i>Dashboard</a></li>;
+        }else{
+            dashboard = <li><a href='/' style={styleLogout}><i className="material-icons left">home</i>Dashboard</a></li>;
+        }
 
         return(
         <React.Fragment>
@@ -54,14 +110,16 @@ export default class NavBar extends Component{
 
                     <nav>
                         <div className="nav-wrapper">
-                            <a href="/" className="brand-logo"><img className="responsive-img jHlogo" alt='logo' src={logo} /></a>
+                        <a href="/" className="brand-logo"><img className="responsive-img jHlogo" alt='logo' src={logo} /></a>
+                        <ul className="right hide-on-med-and-down">
+                            <li><a href="/" style={otherBtn}><i className="material-icons left">home</i>Home</a></li>
+                            {/* <li><a href='' style={styleLogout}><i className="material-icons left">home</i>Dashboard</a></li>*/}
+                            {dashboard}
+                            <li><a className="dropdown-trigger" href='#!' data-target="dropdown2" style={otherBtn}><i className="material-icons left">assignment_ind</i>Login<i className="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a href="/" id="logout" onClick={handleLogout} style={styleLogout}><i className="material-icons left">lock</i>Logout</a></li>
+                            <li><a className="dropdown-trigger" href='#!' data-target="dropdown1" style={otherBtn}><i className="material-icons left">assignment</i>Register<i className="material-icons right">arrow_drop_down</i></a></li>
 
-                                <ul className="right hide-on-med-and-down">
-                                    <li><a href="/"><i className="material-icons left">home</i>Home</a></li>                    
-                                    <li><a className="dropdown-trigger" href="/" data-target="dropdown2" style={otherBtn}><i className="material-icons left">assignment_ind</i>Login<i className="material-icons right">arrow_drop_down</i></a></li>
-                                    <li><a href="/" id="logout" onClick={handleLogout} style={styleLogout}><i className="material-icons left">lock</i>Logout</a></li>
-                                    <li><a className="dropdown-trigger" href="/" data-target="dropdown1" style={otherBtn}><i className="material-icons left">assignment</i>Register<i className="material-icons right">arrow_drop_down</i></a></li>
-                                 </ul>
+                        </ul>
                         </div>
 
                     </nav>

@@ -29,7 +29,7 @@ class App extends Component {
   
   componentWillMount() {
      axios.get('/auth/user').then((data)=>{
-       console.log(data.data);
+       console.log(data.data.user);
 
        this.setState({
          isLoggedIn: data.data.auth, 

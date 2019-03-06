@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from "../nav/navBar"
-import SideNav from '../sideNav/sideNav'
+import CompSideNav from '../sideNav/compSideNav'
 import './compProfile.css'
 
 // import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
@@ -13,6 +13,7 @@ export default class companyHomePage extends Component{
     state={
         user:''
     }
+    
     componentWillMount(){
         axios.get('/auth/user').then((data)=>{
           this.setState({
@@ -26,7 +27,7 @@ export default class companyHomePage extends Component{
             console.log(props)
         return(
             <React.Fragment>
-           <NavBar/>
+           <NavBar company={this.state.user}/>
           
             <div className="cJtron center  welcomeN">
                 <div className="container">
@@ -35,7 +36,14 @@ export default class companyHomePage extends Component{
                 </div>
             </div>
 
-        <SideNav/>
+            <div className='row footNav'>
+                    <div className='col l10 offset-l1'>
+                        <div className='word2'><span>Welcome To Your Profile</span></div> 
+                    </div>
+            </div>
+
+            <CompSideNav/>
+
             </React.Fragment>
         )
     }
