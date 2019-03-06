@@ -16,6 +16,10 @@ nav{
     margin-top: 5px;
 }
 
+/* #navButton{
+    color: goldenrod;
+} */
+
 .nahHov:hover{
     color: green;    
     }

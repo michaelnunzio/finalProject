@@ -9,7 +9,9 @@ import "./login.css";
 function login(){
     return(
         <React.Fragment>
-            <NavBar/>
+            <div className='row newNn'>
+                <NavBar/>
+            </div>
         <div className="container empLog">
             <form className="form-signin" method="post" action="/login/employer">
                 <h1 className="h3 mb-3 font-weight-normal">Employer- Please sign in</h1>

@@ -7,7 +7,9 @@ import NavBar from "../nav/navBar"
 function login(){
     return(
         <React.Fragment>
-        <NavBar/>
+        <div className='row newNn'>
+            <NavBar/>
+        </div>
         <div className="container">
             <form className="form-signin" method="post" action="/login/candidate">
             
