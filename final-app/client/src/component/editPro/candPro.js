@@ -50,11 +50,10 @@ export default class candPro extends Component{
     render(){
         return(
         <React.Fragment>
-        <div className='row newNn'>
-                <NavBar candidate={false}/>
-        </div>
-
-
+        <div className='outter'>
+                <div className='row newNn'>
+                    <NavBar candidate={false}/>
+                </div>
 
          <div className="container"> 
                 <div className='row'>
@@ -87,9 +86,15 @@ export default class candPro extends Component{
                 <p className="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
             </form>
 
-        </div> 
+                    <div className='row footNav'>
+                            <div className='col l10 offset-l1'>
+                                <div className='word2'><span>Edit Your Info</span></div> 
+                            </div>
+                    </div>
 
+                </div> 
 
+        </div>
         </React.Fragment>
         )
     }

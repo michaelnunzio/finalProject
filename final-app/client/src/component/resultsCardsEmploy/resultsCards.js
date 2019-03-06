@@ -8,12 +8,12 @@ function ResultsCard(props) {
         <img alt={props.name} src={props.image} />
       </div>
       <div className="content">
-        <ul>
+        <ul id='content'>
           <li>
             <strong></strong> {props.company}
           </li>
           <li>
-            <strong>Contact:</strong> {props.first} {props.last}
+            <strong>Name:</strong> {props.first} {props.last}
           </li>
           <li>
             <strong>Email:</strong> {props.email}
@@ -22,7 +22,10 @@ function ResultsCard(props) {
             <strong>Location:</strong> New York
           </li>
           <li>
-            <strong>Industry:</strong> {props.industry}
+            <strong>Title:</strong> {props.title}
+          </li>
+          <li>
+          <i class="material-icons small" id='mat-icon'>import_export email settings</i>
           </li>
         </ul>
       </div>

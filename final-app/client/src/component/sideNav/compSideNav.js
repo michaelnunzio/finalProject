@@ -11,7 +11,7 @@ function CompSideNav() {
   <li><a href="/editCprofile">Edit Profile</a></li>
 
   </ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"></a>;
+<a href="#" data-target="slide-out" class="sidenav-trigger"></a>
 </React.Fragment>
   )
 }

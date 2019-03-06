@@ -63,3 +63,8 @@
     padding-bottom: 5px;
   box-shadow: 0 2px 2px rgb(160, 160, 160)
   }
+
+  .cPage{
+    background-color: rgb(80, 79, 77);
+    min-height: 100%;
+  }
