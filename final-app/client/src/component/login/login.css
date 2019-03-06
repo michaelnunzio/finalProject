@@ -6,13 +6,25 @@
     padding-bottom: 20px;
 }
 
-.subBtn{
+/* .subBtn{
     background-image: linear-gradient(to right, green , rgb(0, 180, 0), rgb(0, 224, 0));
     border-radius: 20px;
-}
+} */
 
 .subBtn:hover{
     /* background-image: linear-gradient(to right, green , rgb(0, 180, 0), rgb(0, 224, 0)); */
-    background-image: linear-gradient(to right, rgb(0, 224, 0), green, rgb(0, 180, 0));
+    background-image: linear-gradient(to right, rgb(60, 134, 204), teal, rgb(0, 168, 180));
     color: white;
+}
+
+.subBtn {
+    background-image: linear-gradient(to right, teal , rgb(33, 110, 155), rgb(52, 185, 238));
+}
+
+.card-title{
+    text-align: center
+}
+
+body {
+    background-color: rgb(245, 241, 238)
 }

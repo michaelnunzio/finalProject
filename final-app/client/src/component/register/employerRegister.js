@@ -7,9 +7,16 @@ function employerRegister(){
         <React.Fragment>
 
             <NavBar/>
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
                 <div className="container">
+
                     <form className="form-signin" method="post" action="/register/employer">
-                        <h1 className="h3 mb-3 font-weight-normal">Register as a Employer</h1>
+                        <h1 className="h3 mb-3 font-weight-normal">Company Registration</h1>
                         <label htmlFor="inputFirstName" className="sr-only">First Name</label>
                         <input type="text" name="FirstName" id="inputFirstName" className="form-control" placeholder="First Name" required autoFocus/>
                         <label htmlFor="inputLastName" className="sr-only">Last Name</label>
@@ -24,10 +31,13 @@ function employerRegister(){
                         <input type="text" name="Company" id="inputCompany" className="form-control" placeholder="Company Name" />
                         <label htmlFor="inputIndustry" className="sr-only">Industry</label>
                         <input type="text" name="Industry" id="inputIndustry" className="form-control" placeholder="Industry" />
-                        <button className="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                        <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Register
+                        <i class="material-icons right">done</i>
+                        </button>
                         <p className="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
                     </form>
                 </div>
+
             </React.Fragment>
     );
 }

@@ -9,9 +9,16 @@ function register(){
       
         <React.Fragment>
         <NavBar/>
+
+            
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            
         <div className="container">
             <form className="form-signin" method="post" action="/register/candidate">
-                <h1 className="h3 mb-3 font-weight-normal">Register as a Candidate</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Employee Registration</h1>
                 <label htmlFor="inputFirstName" className="sr-only">First Name</label>
                 <input type="text" name="FirstName" id="inputFirstName" className="form-control" placeholder="First Name" required autoFocus/>
                 <label htmlFor="inputLastName" className="sr-only">Last Name</label>
