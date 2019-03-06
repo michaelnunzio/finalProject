@@ -3,7 +3,7 @@
   font-weight: bold;
   color: white;
   background-image: url('../homepage/pictures/pic70.jpg');
-  height: 600px;
+  height: 750px;
   text-shadow: 3px 3px black;
 
   /* margin-top: -90 */
@@ -18,7 +18,7 @@
   /* height: 820px; */
   /* padding-bottom: 300px; */
   /* max-width: 100%; */
-  z-index: 0;
+  /* z-index: 0; */
 }
 
 .footNav{

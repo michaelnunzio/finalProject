@@ -16,9 +16,9 @@ export default class ResultsForUser extends Component{
           this.setState({
             candy: data.data.user._id,
             matchArray: data.data.user.match,
-            cInd: data.data.user.desc
+            compName: data.data.user.company
           })
-          console.log(this.state.cInd)
+          console.log(this.state.compName + 'name')
             console.log(this.state.candy)
             console.log(this.state.matchArray)
             console.log(this.state.matchArray[0])
@@ -56,8 +56,16 @@ export default class ResultsForUser extends Component{
 
           <br></br>
 
+          <div className='row'>
+        <div className='col l4 offset-l4 col m8 offset-m2 col s10 offset-s1 checkOut'>
+            Hello {this.state.compName}!
+        </div>
+    </div>
+
         <div className='row'>
-            <div className='col l4 offset-l4 col m6 offset-m3 col s8 offset-s2 checkOut'>Check Out Your Matches! *this is the employer*</div>
+            <div className='col l4 offset-l4 col m6 offset-m3 col s8 offset-s2 checkOut'>
+            Check Out Your Matches!
+            </div>
         </div>
 
         <div className='row'>

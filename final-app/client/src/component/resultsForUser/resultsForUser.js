@@ -79,61 +79,53 @@ export default class ResultsForUser extends Component{
 
         render(){
         return(
-      <React.Fragment>
+    <React.Fragment>
 
-<div className='container-fluid cPage'>
+      <div className='container-fluid cPage'>
 
-<div className='row newNn'>
-  <NavBar candidate={false}/>
+      <div className='row newNn'>
+        <NavBar candidate={false}/>
 
-</div>
-      <br></br>
+      </div>
+            <br></br>
 
+            <div className='row'>
+              <div className='col l4 offset-l4 col m8 offset-m2 col s10 offset-s1 checkOut'>
+                  Hello, {this.state.cName}!
+              </div>
+          </div>
 
-      <div className='row'>
-        <div className='col l4 offset-l4 col m8 offset-m2 col s10 offset-s1 checkOut'>
-            Hello {this.state.cName}!
-        </div>
-    </div>
+          <div className='row'>
+              <div className='col l4 offset-l4 col m8 offset-m2 col s10 offset-s1 checkOut'>
+                  Check Out Your Matches!
+              </div>
+          </div>
 
-    <div className='row'>
-        <div className='col l4 offset-l4 col m8 offset-m2 col s10 offset-s1 checkOut'>
-            Check Out Your Matches *this is the candidate*!
-        </div>
-    </div>
+          <div className='row'>
+          <div className='col l6 offset-l3 ol m8 offset-m2 col s10 offset-s1'>
+              {this.state.allMatches.map(comp=> (
+                <ResultsCard
+              
+                  company={comp.company}
+                  email={comp.email}
+                  first={comp.first}
+                  last={comp.last}
+                  industry={comp.industry}
+                  
+                />
+              ))}
+          </div>
+              </div>
 
-    <div className='row'>
-    <div className='col l6 offset-l3 ol m8 offset-m2 col s10 offset-s1'>
-         {this.state.allMatches.map(comp=> (
-          <ResultsCard
-        
-            company={comp.company}
-            email={comp.email}
-            first={comp.first}
-            last={comp.last}
-            industry={comp.industry}
-            
-          />
-        ))}
-    </div>
-
-
-        </div>
-
-        <div className='row footNav'>
-                    <div className='col l10 offset-l1'>
-                        <div className='word2'><span>View Your Matches</span></div> 
-                    </div>
-            </div>
-    </div>
-          
-          </React.Fragment>
-        
+              <div className='row footNav'>
+                          <div className='col l10 offset-l1'>
+                              <div className='word2'><span>View Your Matches</span></div> 
+                          </div>
+                  </div>
+          </div>
                 
-
-        
-        )
-        }
+     </React.Fragment>
+  )}
 }
 
 // export default homePage;

@@ -24,6 +24,9 @@ function ResultsCard(props) {
           <li>
             <strong>Title:</strong> {props.title}
           </li>
+          <li>
+          <i class="material-icons small" id='mat-icon'>import_export email settings</i>
+          </li>
         </ul>
       </div>
       <span>
