@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import NavBar from '../nav/navBar'
 import axios from 'axios';
+import EditButton from 'react-edit-button'
 
 
-export default class candPro extends Component{
+export default class clientPro extends Component{
 
     state={
         email: '',
@@ -47,7 +48,8 @@ export default class candPro extends Component{
     render(){
         return(
         <React.Fragment>
-            <NavBar company={true}/>
+            <NavBar/>
+
 
          <div className="container"> 
                 <div className='row'>
@@ -59,16 +61,16 @@ export default class candPro extends Component{
                 </div>
 
 
-                <form className="form-signin" method="post" action="/editEmploy">
+                <form className="form-signin" method="post" action="/allemploy">
                         
                         
-                        <label htmlFor="inputEmail" className="sr-only">Email address</label>
+                        <label htmlFor="inputEmail" className="sr-only">Email address</label> E-mail:
                         <input readOnly={this.state.readOnly} type="email" name="Email" id="inputEmail" className="form-control" defaultValue={this.state.email} />
                         
-                        <label htmlFor="inputCompany" className="sr-only">Company Name</label>
+                        <label htmlFor="inputCompany" className="sr-only">Company Name</label> Company Name
                         <input readOnly={this.state.readOnly} type="text" name="Company" id="inputCompany" className="form-control" defaultValue={this.state.comp} />
 
-                        <label htmlFor="inputIndustry" className="sr-only">Industry</label>
+                        <label htmlFor="inputIndustry" className="sr-only">Industry</label> Industry:
                         <input readOnly={this.state.readOnly} type="text" name="Industry" id="inputIndustry" className="form-control" defaultValue={this.state.ind} />
 
                         <button className="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
