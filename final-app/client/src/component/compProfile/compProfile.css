@@ -2,18 +2,23 @@
   font-family: 'Chonburi', cursive;
   font-weight: bold;
   color: white;
-  background-image: url('../pictures/techPic.png');
-  height: 600px;
+  background-image: url('../homepage/pictures/pic70.jpg');
+  height: 750px;
   text-shadow: 3px 3px black;
+
   /* margin-top: -90 */
+}
+
+.welc {
+  font-size: 20px;
 }
 
 .cJtron{
   padding-top: 120px;
-  height: 100%;
-  padding-bottom: 100px;
+  /* height: 820px; */
+  /* padding-bottom: 300px; */
   /* max-width: 100%; */
-  z-index: 0;
+  /* z-index: 0; */
 }
 
 .footNav{
