@@ -47,7 +47,9 @@ export default class candPro extends Component{
     render(){
         return(
         <React.Fragment>
+        <div className='row newNn'>            
             <NavBar company={true}/>
+        </div>
 
          <div className="container"> 
                 <div className='row'>

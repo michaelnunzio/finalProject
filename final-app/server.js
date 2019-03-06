@@ -19,15 +19,29 @@ const PORT = process.env.PORT || 3001;
 const routes = require("./routes/login/empdata")
 
 app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
+
+//Static file declaration
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
+
+// Serve up static assets (usually on heroku) for production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+  //
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+  })
 }
+
+
+//build mode
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname+'/client/public/index.html'));
+// })
 
 // BodyParser Middleware
 app.use(bodyParser.json());
