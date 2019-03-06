@@ -50,43 +50,52 @@ export default class candPro extends Component{
     render(){
         return(
         <React.Fragment>
-            <NavBar candidate={false}/>
-
-
-         <div className="container"> 
-                <div className='row'>
-                     <h2 className='col l6 offset-l3 editProH'>Personal Info</h2> 
+        <div className='outter'>
+                <div className='row newNn'>
+                    <NavBar candidate={false}/>
                 </div>
-                <div className='row'>
-                <button className="col l6 offset-l3 btn btn-sm btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT</button>
-                </div>
-            <form className="form-signin" method="post" action="/allcands">
-            
-                <label htmlFor="inputEmail" className="sr-only">{this.state.email}</label>
-                <input readOnly={this.state.readOnly} type="email" name="Email" id="inputEmail" className="form-control" defaultValue={this.state.email} />
-               
-                <label htmlFor="inputTitle" className="sr-only">{this.state.title}</label>
-                <input readOnly={this.state.readOnly} type="text" name="Title" id="inputTitle" className="form-control" defaultValue={this.state.title} />
-                
-                <label htmlFor="inputDescription" className="sr-only">{this.state.desc} </label>
-                <input readOnly={this.state.readOnly} type="text" name="Description" id="inputDescription" className="form-control" defaultValue={this.state.desc} />
-                
-                <label htmlFor="inputTechnologies" className="sr-only">{this.state.tech}</label>
-                <input readOnly={this.state.readOnly} type="text" name="Technologies" id="inputTechnologies" className="form-control" defaultValue={this.state.tech} />
-                
-                <label htmlFor="inputGithub" className="sr-only">{this.state.gitPort}</label>
-                <input readOnly={this.state.readOnly} type="text" name="Github" id="inputGithub" className="form-control" defaultValue={this.state.gitPort} autofocus/>
-               
-                <label htmlFor="inputProject" className="sr-only">Last 2 Employers or Favorite Projects</label>
-                <input readOnly={this.state.readOnly} type="text" name="Project" id="inputProject" className="form-control" defaultValue="Last 2 Employers or Projects" autofocus/>
-               
-                <button className="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-                <p className="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
-            </form>
 
-        </div> 
+                <div className="container cProfile"> 
+                        <div className='row'>
+                            <h2 className='col l6 offset-l3 editProH'>Personal Info</h2> 
+                        </div>
+                        <div className='row'>
+                        <button className="col l6 offset-l3 btn btn-sm btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT PROFILE</button>
+                        </div>
+                    <form className="form-signin" method="post" action="/allcands">
+                    
+                        <label htmlFor="inputEmail" className="sr-only">{this.state.email}</label>
+                        <input readOnly={this.state.readOnly} type="email" name="Email" id="inputEmail" className="form-control" defaultValue={this.state.email} />
+                    
+                        <label htmlFor="inputTitle" className="sr-only">{this.state.title}</label>
+                        <input readOnly={this.state.readOnly} type="text" name="Title" id="inputTitle" className="form-control" defaultValue={this.state.title} />
+                        
+                        <label htmlFor="inputDescription" className="sr-only">{this.state.desc} </label>
+                        <input readOnly={this.state.readOnly} type="text" name="Description" id="inputDescription" className="form-control" defaultValue={this.state.desc} />
+                        
+                        <label htmlFor="inputTechnologies" className="sr-only">{this.state.tech}</label>
+                        <input readOnly={this.state.readOnly} type="text" name="Technologies" id="inputTechnologies" className="form-control" defaultValue={this.state.tech} />
+                        
+                        <label htmlFor="inputGithub" className="sr-only">{this.state.gitPort}</label>
+                        <input readOnly={this.state.readOnly} type="text" name="Github" id="inputGithub" className="form-control" defaultValue={this.state.gitPort} autofocus/>
+                    
+                        <label htmlFor="inputProject" className="sr-only">Last 2 Employers or Favorite Projects</label>
+                        <input readOnly={this.state.readOnly} type="text" name="Project" id="inputProject" className="form-control" defaultValue="Last 2 Employers or Projects" autofocus/>
+                    
+                        <button className="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                        <p className="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+                    </form>
 
 
+                    <div className='row footNav'>
+                            <div className='col l10 offset-l1'>
+                                <div className='word2'><span>Edit Your Info</span></div> 
+                            </div>
+                    </div>
+
+                </div> 
+
+        </div>
         </React.Fragment>
         )
     }

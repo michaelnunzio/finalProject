@@ -1,7 +1,21 @@
 .editProH{
-    margin-top: 100px;
+    margin-top: 60px;
+    font-family: 'Chonburi', cursive;
+    text-align: center;
 }
 
 .editBtnn{
     /* width: 100px; */
 }
+
+.cProfile{
+    border: goldenrod solid 2px;
+    padding: 10px;
+   background-color: lightgrey;
+   border-radius: 20px;
+}
+
+.outter{
+    background-color: darkcyan;
+    padding-bottom: 250px;
+  }

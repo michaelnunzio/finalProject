@@ -32,7 +32,7 @@ export default class companyHomePage extends Component{
             <div className="cJtron center  welcomeN">
                 <div className="container">
                     <h1>Welcome, {this.state.user} </h1>
-                    <p>Welcome to your company profile</p>
+                    <p className='welc'>Welcome to your company profile</p>
                 </div>
             </div>
 
