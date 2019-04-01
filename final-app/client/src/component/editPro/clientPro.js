@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import NavBar from '../nav/navBar'
 import axios from 'axios';
+import EditButton from 'react-edit-button'
 
 
-export default class candPro extends Component{
+export default class clientPro extends Component{
 
     state={
         email: '',
@@ -47,19 +48,45 @@ export default class candPro extends Component{
     render(){
         return(
         <React.Fragment>
-        <div className='outter'>
-                <div className='row newNn'>
-                    <NavBar company={true}/>
+//             <NavBar/>
+         <div className='outter'>
+            <div className='row newNn'>
+              <NavBar company={true}/>
+            </div>
+
+
+         <div className="container"> 
+                <div className='row'>
+                     <h2 className='col l4 offset-l4 editProH'>Company Info</h2> 
                 </div>
 
-                <div className="container cProfile"> 
-                        <div className='row'>
-                            <h2 className='col l6 offset-l3 m10 offset-m1 s10 offset-s1 editProH'>Company Info</h2> 
-                        </div>
+                <div className='row'>
+                <button className="col l6 offset-l3 btn btn-sm btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT</button>
+                </div>
+//         <div className='outter'>
+//                 <div className='row newNn'>
+//                     <NavBar company={true}/>
+//                 </div>
 
-                        <div className='row'>
-                        <button className="col l6 offset-l3 btn btn-sm btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT PROFILE</button>
-                        </div>
+//                 <div className="container cProfile"> 
+//                         <div className='row'>
+//                             <h2 className='col l6 offset-l3 m10 offset-m1 s10 offset-s1 editProH'>Company Info</h2> 
+//                         </div>
+
+//                 <form className="form-signin" method="post" action="/allemploy">
+                        
+                        
+//                         <label htmlFor="inputEmail" className="sr-only">Email address</label> E-mail:
+//                         <input readOnly={this.state.readOnly} type="email" name="Email" id="inputEmail" className="form-control" defaultValue={this.state.email} />
+                        
+//                         <label htmlFor="inputCompany" className="sr-only">Company Name</label> Company Name
+//                         <input readOnly={this.state.readOnly} type="text" name="Company" id="inputCompany" className="form-control" defaultValue={this.state.comp} />
+
+//                         <label htmlFor="inputIndustry" className="sr-only">Industry</label> Industry:
+//                         <input readOnly={this.state.readOnly} type="text" name="Industry" id="inputIndustry" className="form-control" defaultValue={this.state.ind} />
+//                         <div className='row'>
+//                         <button className="col l6 offset-l3 btn btn-sm btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT PROFILE</button>
+//                         </div>
 
 
                         <form className="form-signin" method="post" action="/editEmploy">

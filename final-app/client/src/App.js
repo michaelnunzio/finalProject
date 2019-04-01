@@ -9,11 +9,11 @@ import EmployerRegister from './component/register/employerRegister';
 import Profile from "./component/userProfile/userProfile";
 import CompProfile from './component/compProfile/compProfile';
 import axios from 'axios';
-import JobCard from "./component/jobCards/JobCard"
-import PeopleCard from "./component/peopleCards/PeopleCard"
+import JobCard from "./component/jobCards/JobCard";
+import PeopleCard from "./component/peopleCards/PeopleCard";
 import CandPro from './component/editPro/candPro';
 import ClientPro from './component/editPro/clientPro';
-import ResultsForUser from "./component/resultsForUser/resultsForUser"
+import ResultsForUser from "./component/resultsForUser/resultsForUser";
 import ResultsforEmploy from "./component/resultsForEmploy/resultsForEmploy"
 
 

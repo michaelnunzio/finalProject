@@ -55,6 +55,9 @@ export default class candPro extends Component{
                     <NavBar candidate={false}/>
                 </div>
 
+        <br></br>
+        <br></br>
+        <br></br>
          <div className="container"> 
                 <div className='row'>
                      <h2 className='col l6 offset-l3 editProH'>Personal Info</h2> 
@@ -63,7 +66,6 @@ export default class candPro extends Component{
                 <button className="col l6 offset-l3 btn btn-sm btn-primary btn-block editBtnn" type="edit" onClick={this.readFalse}>EDIT</button>
                 </div>
             <form className="form-signin" method="post" action="/allcands">
-            
                 <label htmlFor="inputEmail" className="sr-only">{this.state.email}</label>
                 <input readOnly={this.state.readOnly} placeholder="Email" type="email" name="Email" id="inputEmail" className="form-control" defaultValue={this.state.email} />
                
