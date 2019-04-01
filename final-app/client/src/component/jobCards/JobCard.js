@@ -58,7 +58,9 @@ export default class JobCard extends Component {
   render() {
     return (
       <div>
+      <div className='row newNn'>
         <NavBar candidate={false}/>
+      </div>
 
       <div className="App">
         <CardDeck cards={this.state.cards} shiftCard={this.shiftCard.bind(this)} />

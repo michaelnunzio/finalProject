@@ -19,6 +19,10 @@ function login(){
             <br></br>
 
         {/* <div className="container">
+        <div className='row newNn'>
+            <NavBar/>
+        </div>
+        <div className="container">
             <form className="form-signin" method="post" action="/login/candidate">
             
             <div className='col l8 offset-l2'>

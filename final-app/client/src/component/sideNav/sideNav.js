@@ -11,7 +11,7 @@ function candSideNav() {
   <li><a href="/editProfile">Edit Profile</a></li>
 
   </ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"></a>;
+<a href="#" data-target="slide-out" class="sidenav-trigger"></a>
 </React.Fragment>
   )
 }

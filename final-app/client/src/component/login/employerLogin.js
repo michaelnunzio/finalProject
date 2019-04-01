@@ -54,7 +54,6 @@ function login(){
                     </form>
                 </div>
             </div>
-
         </React.Fragment>
     );
 };
